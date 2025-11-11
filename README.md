@@ -1,4 +1,6 @@
-# Stevia
+# Ash Phoenix Application Starter Kit
+
+Stop repeating non functional requirements and focus on building what matters most for you.
 
 ## FEATURES
 
