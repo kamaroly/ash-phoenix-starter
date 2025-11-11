@@ -1,5 +1,29 @@
 # Stevia
 
+## FEATURES
+
+1. Multitenancy with Team Management
+2. Team switching
+3. User invite to the team
+4. Team user group permission management with Ash Policies
+5. Permission management
+6. Main Menu configurations
+7. Chart Reports
+8. Map Reports
+9. Workflow with initiator and approver
+10. Email send out 
+11. Authentication with Ash Authentication
+12. Templating with Daisy UI
+13. Impersonation --> Ongoing
+
+## Installation 
+
+1. Clone 
+2. Rename your project with `mix rename AshPhoenixStarter MyNewProjectName`
+3. Fix `colocated` JS
+4. Start coding
+
+
 To start your Phoenix server:
 
 * Run `mix setup` to install and setup dependencies
