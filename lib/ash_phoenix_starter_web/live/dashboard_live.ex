@@ -1,5 +1,6 @@
 defmodule SteviaWeb.DashboardLive do
   use SteviaWeb, :live_view
+  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -44,7 +45,7 @@ defmodule SteviaWeb.DashboardLive do
             <SteviaWeb.Map.map />
           </div>
         </div>
-        
+
     <!-- Low Stock Section -->
         <div class="card bg-base-100 border border-primary ">
           <div class="card-body">

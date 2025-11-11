@@ -42,27 +42,27 @@
   <div class="mx-auto max-w-xl lg:mx-0">
     <div class="mt-10 flex justify-between items-center">
       <h1
-        class="flex items-center text-5xl font-semibold leading-6 color-yellow-500"
-        style="color: #FDCC00"
+        class="flex items-center text-5xl font-semibold text-primary"
       >
-        {gettext("STEVIA")}
+        {gettext("Ash Phoenix Starter Kit")}
       </h1>
       <Layouts.theme_toggle />
     </div>
 
     <p class="text-[2rem] mt-4 font-semibold leading-10 color-yellow-800 tracking-tighter text-balance">
-      {gettext("Distribution Management System")}
+      {gettext("Starter Kit that takes from Zero to One with Your Loved Stack")}
     </p>
     <p class="mt-4 leading-7 text-yellow-800 text-lg">
-      The Solution that unlocks how you oversee sales, distribution, field teams, and keeps you ahead of others with real-time insights that follow you wherever you are.
+      All you need to put your application in the hands of your customers, faster and safe, while keeping the flexibility to grow, scale 
+      and move to the next level without breaking a sweat.
     </p>
-    <div class="flex justify-end">
+    <div class="block mt-8 justify-end">
       <div class="w-full sm:w-auto">
         <.button
-          phx-click={JS.navigate(~p"/accounts/teams")}
+          phx-click={JS.navigate(~p"/dashboard")}
           class="w-full btn btn-primary text-primary-content text-lg animate-pulse"
         >
-          {gettext("Start From Here")}
+          {gettext("Click Here to start")}
           <.icon name="hero-arrow-right-solid" />
         </.button>
       </div>

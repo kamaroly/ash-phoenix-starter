@@ -1,6 +1,8 @@
 # Ash Phoenix Application Starter Kit
 
-Stop repeating non functional requirements and focus on building what matters most for you.
+A starter Kit that helps you build what's unique to your application faster.
+
+![Ash Phoenix Starter Kit](dashboard.png "Starter Kit Dashboard")
 
 ## FEATURES
 
@@ -12,11 +14,20 @@ Stop repeating non functional requirements and focus on building what matters mo
 6. Main Menu configurations
 7. Chart Reports
 8. Map Reports
-9. Workflow with initiator and approver
-10. Email send out 
+10. Email send out
 11. Authentication with Ash Authentication
 12. Templating with Daisy UI
+13. Rich Background Jobs with Oban
+14. Accounting with AshDouble Entry
+
+#### Future
+
 13. Impersonation --> Ongoing
+14. AI integration with Ash AI
+15. Paper trail with Ash Paper Trail
+16. Workflows with ash_approver
+17. Self referencing data with AshParental
+
 
 ## Installation 
 
