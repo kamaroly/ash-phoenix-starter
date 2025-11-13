@@ -1,6 +1,7 @@
 # Ash Phoenix Application Starter Kit
 
-A starter Kit that helps you build what's unique to your application faster.
+A starter Kit that helps you build what's unique to your application faster. A launchpad for building unique apps faster by focusing on what's unique rather than common features.
+Don't reinvent the wheel; dive in today to prototype, experiment, and scale Phoenix projects with confidence!
 
 ![Ash Phoenix Starter Kit](dashboard.png "Starter Kit Dashboard")
 
@@ -14,27 +15,30 @@ A starter Kit that helps you build what's unique to your application faster.
 6. Main Menu configurations
 7. Chart Reports
 8. Map Reports
-10. Email send out
 11. Authentication with Ash Authentication
 12. Templating with Daisy UI
-13. Rich Background Jobs with Oban
 14. Accounting with AshDouble Entry
 
-#### Future
+#### Upcoming features
 
-13. Impersonation --> Ongoing
-14. AI integration with Ash AI
-15. Paper trail with Ash Paper Trail
-16. Workflows with ash_approver
-17. Self referencing data with AshParental
+1. Email send out
+2. Rich Background Jobs with Oban
+3. Impersonation 
+4. AI integration with Ash AI
+5. Paper trail with Ash Paper Trail
+6. Workflows with ash_approver
+7. Self referencing data with AshParental
+8. Documentations
+9. Automated CI/ CD workflow with Github
 
 
 ## Installation 
 
 1. Clone 
 2. Rename your project with `mix rename AshPhoenixStarter MyNewProjectName`
-3. Fix `colocated` JS
-4. Start coding
+3. Replace `AshPhoenixStarter` with `MyNewProjectName` in your javascripts (This will automatically be cattered for in the future
+4. Confirm that all is well with `mix tests`
+5. Start implementing your new features
 
 
 To start your Phoenix server:
@@ -48,8 +52,12 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Learn more
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://hexdocs.pm/phoenix/overview.html
-* Docs: https://hexdocs.pm/phoenix
+### Phoenix
+* https://www.phoenixframework.org/
+* https://hexdocs.pm/phoenix/overview.html
 * Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+
+### Ash
+* https://ash-hq.org/
+* https://hexdocs.pm/ash/readme.html
+* https://elixirforum.com/c/ash-framework-forum/
