@@ -4,6 +4,8 @@ A starter Kit that helps you build what's unique to your application faster.
 
 Don't reinvent the wheel for common features. Clone it, rename it and start shipping with confidence today. Build for fast prototype and scaling in the future.
 
+All concepts used in this starter can also be found in the [Ash Framework for Phoenix Developers](https://medium.com/@lambert.kamaro/ash-framework-for-phoenix-developpers-c29b0a147552) blog serie. I will continue to add feature and documentation as time allows. 
+
 ![Ash Phoenix Starter Kit](dashboard.png "Starter Kit Dashboard")
 
 ## FEATURES
