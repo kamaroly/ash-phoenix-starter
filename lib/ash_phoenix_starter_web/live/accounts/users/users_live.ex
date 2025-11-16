@@ -31,12 +31,22 @@ defmodule AshPhoenixStarterWeb.Accounts.Users.UsersLive do
   defp get_query(current_user) do
     require Ash.Query
 
-    Ash.Query.for_read(
-      AshPhoenixStarter.Accounts.User,
-      :admin_read,
-      %{},
-      authorize?: false,
-      actor: current_user
-    )
+    if AshPhoenixStarterWeb.Helpers.is_super_user?(current_user) do
+      Ash.Query.for_read(
+        AshPhoenixStarter.Accounts.User,
+        :read,
+        %{},
+        authorize?: false,
+        actor: current_user
+      )
+    else
+      Ash.Query.for_read(
+        AshPhoenixStarter.Accounts.User,
+        :admin_read,
+        %{},
+        authorize?: false,
+        actor: current_user
+      )
+    end
   end
 end

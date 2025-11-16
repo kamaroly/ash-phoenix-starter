@@ -11,20 +11,20 @@ defmodule AshPhoenixStarterWeb.DashboardLive do
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
         <div class="bg-base-100 border border-lg border-primary rounded-box p-6">
           <div class="stat-figure"></div>
-          <div class="stat-title text-lg">Total Fields</div>
+          <div class="stat-title text-lg">Total Users</div>
           <div class="stat-value">200</div>
-          <div class="stat-desc">Active fields</div>
+          <div class="stat-desc">Active Users</div>
         </div>
 
         <div class=" bg-base-100 bg-primary text-primary-content rounded-box p-6">
           <div class="stat-figure"></div>
-          <div class="stat-title text-lg text-base-200">Harvest Today</div>
-          <div class="stat-value">32,000,299</div>
-          <div class="stat-desc text-base-100">Total havests</div>
+          <div class="stat-title text-lg text-base-200">Total Teams</div>
+          <div class="stat-value">32</div>
+          <div class="stat-desc text-base-100">Total Tenants</div>
         </div>
 
         <div class=" bg-base-100 bg-primary-content text-primary border border-primary rounded-box p-6">
-          <div class="stat-title text-primary text-lg">Pending Harvest</div>
+          <div class="stat-title text-primary text-lg">Revenue</div>
           <div class="stat-value ">12,000</div>
           <div class="stat-desc text-primary">Next Harvest</div>
         </div>
@@ -45,7 +45,7 @@ defmodule AshPhoenixStarterWeb.DashboardLive do
             <AshPhoenixStarterWeb.Map.map />
           </div>
         </div>
-        
+
     <!-- Low Stock Section -->
         <div class="card bg-base-100 border border-primary ">
           <div class="card-body">

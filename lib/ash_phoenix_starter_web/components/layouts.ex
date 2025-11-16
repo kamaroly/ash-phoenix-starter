@@ -34,7 +34,7 @@ defmodule AshPhoenixStarterWeb.Layouts do
     <div class="flex flex-col h-screen bg-gray-100">
       <!-- Top Navigation -->
       <.top_nav current_user={@current_user} />
-      
+
     <!-- Main Content with Left Menu -->
       <div class="flex flex-1 overflow-hidden">
         <!-- Left Menu -->
@@ -65,10 +65,10 @@ defmodule AshPhoenixStarterWeb.Layouts do
             </svg>
           </button>
           <nav>
-            <.left_nav menu={AshPhoenixStarterWeb.Menu.left_menu()} uri={@uri} />
+            <.left_nav menu={AshPhoenixStarterWeb.Menu.left_menu(@current_user)} uri={@uri} />
           </nav>
         </aside>
-        
+
     <!-- Main Content -->
         <main class="flex-1 p-2 bg-white overflow-auto">
           <div class="card card-content">{render_slot(@inner_block)}</div>

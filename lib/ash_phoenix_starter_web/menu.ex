@@ -5,7 +5,15 @@ defmodule AshPhoenixStarterWeb.Menu do
   @doc """
   Configure left menu in the application
   """
-  def left_menu do
+  def left_menu(current_user) do
+    if AshPhoenixStarterWeb.Helpers.is_super_user?(current_user) do
+      super_user_left()
+    else
+      non_super_user_left_menu()
+    end
+  end
+
+  defp non_super_user_left_menu() do
     [
       %{
         title: gettext(""),
@@ -74,6 +82,56 @@ defmodule AshPhoenixStarterWeb.Menu do
             href: "/accounts/groups",
             icon: "hero-user-group",
             text: gettext("User Groups")
+          }
+        ]
+      }
+    ]
+  end
+
+  defp super_user_left() do
+    [
+      %{
+        title: gettext(""),
+        links: [
+          %{
+            href: ~p"/dashboard",
+            icon: "hero-chart-bar-solid",
+            text: gettext("Dashboard")
+          }
+        ]
+      },
+      %{
+        title: gettext("Reports"),
+        links: [
+          %{
+            href: ~p"/reports/graphs",
+            icon: "hero-chart-pie",
+            text: gettext("Graphs")
+          },
+          %{
+            href: ~p"/reports/summaries",
+            icon: "hero-bars-3-bottom-left",
+            text: gettext("Summary")
+          }
+        ]
+      },
+      %{
+        title: gettext("Settings"),
+        links: [
+          # %{
+          #   href: ~p"/settings",
+          #   icon: "hero-cog-6-tooth",
+          #   text: gettext("General")
+          # },
+          %{
+            href: "/accounts/teams",
+            icon: "hero-building-library",
+            text: gettext("Teams")
+          },
+          %{
+            href: "/accounts/users",
+            icon: "hero-users",
+            text: gettext("Users")
           }
         ]
       }
