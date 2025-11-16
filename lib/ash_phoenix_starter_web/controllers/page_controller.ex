@@ -1,5 +1,5 @@
-defmodule SteviaWeb.PageController do
-  use SteviaWeb, :controller
+defmodule AshPhoenixStarterWeb.PageController do
+  use AshPhoenixStarterWeb, :controller
 
   def home(conn, _params) do
     render(conn, :home)

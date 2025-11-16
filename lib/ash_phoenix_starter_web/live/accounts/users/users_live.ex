@@ -1,6 +1,6 @@
-defmodule SteviaWeb.Accounts.Users.UsersLive do
-  use SteviaWeb, :live_view
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+defmodule AshPhoenixStarterWeb.Accounts.Users.UsersLive do
+  use AshPhoenixStarterWeb, :live_view
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -23,7 +23,7 @@ defmodule SteviaWeb.Accounts.Users.UsersLive do
     require Ash.Query
 
     Ash.Query.for_read(
-      Stevia.Accounts.User,
+      AshPhoenixStarter.Accounts.User,
       :admin_read,
       %{},
       authorize?: false,

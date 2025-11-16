@@ -1,14 +1,14 @@
-defmodule Stevia.Accounts.Token do
+defmodule AshPhoenixStarter.Accounts.Token do
   use Ash.Resource,
     otp_app: :AshPhoenixStarter,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer,
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication.TokenResource]
 
   postgres do
     table "tokens"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do

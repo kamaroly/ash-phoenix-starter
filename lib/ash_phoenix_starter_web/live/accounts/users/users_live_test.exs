@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Users.UsersLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Users.UsersLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
   import Phoenix.LiveViewTest
 
   describe "Users live test" do

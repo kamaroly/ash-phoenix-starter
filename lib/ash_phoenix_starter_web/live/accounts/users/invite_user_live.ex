@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Users.InviteUserLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Accounts.Users.InviteUserLive do
+  use AshPhoenixStarterWeb, :live_view
 
   def render(assigns) do
     ~H"""
@@ -35,7 +35,7 @@ defmodule SteviaWeb.Accounts.Users.InviteUserLive do
 
   defp assign_invite_form(socket) do
     form =
-      Stevia.Accounts.User
+      AshPhoenixStarter.Accounts.User
       |> AshPhoenix.Form.for_create(:invite,
         actor: socket.assigns.current_user,
         authorize?: false

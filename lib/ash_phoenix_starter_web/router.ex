@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Router do
-  use SteviaWeb, :router
+defmodule AshPhoenixStarterWeb.Router do
+  use AshPhoenixStarterWeb, :router
 
   use AshAuthentication.Phoenix.Router
 
@@ -9,7 +9,7 @@ defmodule SteviaWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, html: {SteviaWeb.Layouts, :root}
+    plug :put_root_layout, html: {AshPhoenixStarterWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :load_from_session
@@ -21,20 +21,20 @@ defmodule SteviaWeb.Router do
     plug :set_actor, :user
   end
 
-  scope "/", SteviaWeb do
+  scope "/", AshPhoenixStarterWeb do
     pipe_through :browser
 
     ash_authentication_live_session :authenticated_routes do
       # in each liveview, add one of the following at the top of the module:
       #
       # If an authenticated user must be present:
-      # on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+      # on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
       #
       # If an authenticated user *may* be present:
-      # on_mount {SteviaWeb.LiveUserAuth, :live_user_optional}
+      # on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_optional}
       #
       # If an authenticated user must *not* be present:
-      # on_mount {SteviaWeb.LiveUserAuth, :live_no_user}
+      # on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_no_user}
 
       live "/dashboard", DashboardLive
 
@@ -62,44 +62,44 @@ defmodule SteviaWeb.Router do
     end
   end
 
-  scope "/", SteviaWeb do
+  scope "/", AshPhoenixStarterWeb do
     pipe_through :browser
 
     get "/", PageController, :home
-    auth_routes AuthController, Stevia.Accounts.User, path: "/auth"
+    auth_routes AuthController, AshPhoenixStarter.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
     # Remove these if you'd like to use your own authentication views
     sign_in_route register_path: "/register",
                   reset_path: "/reset",
                   auth_routes_prefix: "/auth",
-                  on_mount: [{SteviaWeb.LiveUserAuth, :live_no_user}],
+                  on_mount: [{AshPhoenixStarterWeb.LiveUserAuth, :live_no_user}],
                   overrides: [
-                    SteviaWeb.AuthOverrides,
+                    AshPhoenixStarterWeb.AuthOverrides,
                     AshAuthentication.Phoenix.Overrides.Default
                   ]
 
     # Remove this if you do not want to use the reset password feature
     reset_route auth_routes_prefix: "/auth",
                 overrides: [
-                  SteviaWeb.AuthOverrides,
+                  AshPhoenixStarterWeb.AuthOverrides,
                   AshAuthentication.Phoenix.Overrides.Default
                 ]
 
     # Remove this if you do not use the confirmation strategy
-    confirm_route Stevia.Accounts.User, :confirm_new_user,
+    confirm_route AshPhoenixStarter.Accounts.User, :confirm_new_user,
       auth_routes_prefix: "/auth",
-      overrides: [SteviaWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default]
+      overrides: [AshPhoenixStarterWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default]
 
     # Remove this if you do not use the magic link strategy.
-    magic_sign_in_route(Stevia.Accounts.User, :magic_link,
+    magic_sign_in_route(AshPhoenixStarter.Accounts.User, :magic_link,
       auth_routes_prefix: "/auth",
-      overrides: [SteviaWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default]
+      overrides: [AshPhoenixStarterWeb.AuthOverrides, AshAuthentication.Phoenix.Overrides.Default]
     )
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", SteviaWeb do
+  # scope "/api", AshPhoenixStarterWeb do
   #   pipe_through :api
   # end
 
@@ -115,7 +115,7 @@ defmodule SteviaWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: SteviaWeb.Telemetry
+      live_dashboard "/dashboard", metrics: AshPhoenixStarterWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

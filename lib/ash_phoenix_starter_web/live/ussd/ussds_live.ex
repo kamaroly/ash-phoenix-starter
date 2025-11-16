@@ -1,14 +1,14 @@
-defmodule SteviaWeb.Ussd.UssdsLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Ussd.UssdsLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
     <Layouts.ussd flash={@flash} current_user={@current_user} uri={@uri}>
       <ul class="menu bg-base-200 rounded-box w-56">
-        <li><a>Welcome to Stevia</a></li>
+        <li><a>Welcome to AshPhoenixStarter</a></li>
         <li>
           <details closed>
             <summary>1. Registration</summary>

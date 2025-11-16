@@ -1,18 +1,18 @@
-defmodule Stevia.Ledger.Balance do
+defmodule AshPhoenixStarter.Ledger.Balance do
   use Ash.Resource,
-    domain: Elixir.Stevia.Ledger,
+    domain: Elixir.AshPhoenixStarter.Ledger,
     data_layer: AshPostgres.DataLayer,
     extensions: [AshDoubleEntry.Balance],
     authorizers: [Ash.Policy.Authorizer]
 
   balance do
-    transfer_resource Stevia.Ledger.Transfer
-    account_resource Stevia.Ledger.Account
+    transfer_resource AshPhoenixStarter.Ledger.Transfer
+    account_resource AshPhoenixStarter.Ledger.Account
   end
 
   postgres do
     table "ledger_balances"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -42,16 +42,16 @@ defmodule Stevia.Ledger.Balance do
   policies do
     policy always() do
       access_type :strict
-      authorize_if Stevia.Accounts.Checks.Authorize
+      authorize_if AshPhoenixStarter.Accounts.Checks.Authorize
     end
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -67,13 +67,13 @@ defmodule Stevia.Ledger.Balance do
   end
 
   relationships do
-    belongs_to :transfer, Stevia.Ledger.Transfer do
+    belongs_to :transfer, AshPhoenixStarter.Ledger.Transfer do
       attribute_type AshDoubleEntry.ULID
       allow_nil? false
       attribute_writable? true
     end
 
-    belongs_to :account, Stevia.Ledger.Account do
+    belongs_to :account, AshPhoenixStarter.Ledger.Account do
       allow_nil? false
       attribute_writable? true
     end

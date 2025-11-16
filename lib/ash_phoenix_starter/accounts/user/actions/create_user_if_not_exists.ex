@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.User.Actions.CreateUserIfNotExists do
+defmodule AshPhoenixStarter.Accounts.User.Actions.CreateUserIfNotExists do
   use Ash.Resource.ManualCreate
 
   @impl Ash.Resource.ManualCreate
@@ -12,12 +12,12 @@ defmodule Stevia.Accounts.User.Actions.CreateUserIfNotExists do
   defp get_user(%{attributes: %{email: email}}) do
     require Ash.Query
 
-    Stevia.Accounts.User
+    AshPhoenixStarter.Accounts.User
     |> Ash.Query.filter(email == ^to_string(email))
     |> Ash.read_first(authorize?: false)
   end
 
   defp create_user!(%{attributes: %{email: email}}) do
-    Ash.Seed.seed!(Stevia.Accounts.User, %{email: to_string(email)})
+    Ash.Seed.seed!(AshPhoenixStarter.Accounts.User, %{email: to_string(email)})
   end
 end

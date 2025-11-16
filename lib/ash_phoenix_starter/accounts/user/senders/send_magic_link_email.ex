@@ -1,13 +1,13 @@
-defmodule Stevia.Accounts.User.Senders.SendMagicLinkEmail do
+defmodule AshPhoenixStarter.Accounts.User.Senders.SendMagicLinkEmail do
   @moduledoc """
   Sends a magic link email
   """
 
   use AshAuthentication.Sender
-  use SteviaWeb, :verified_routes
+  use AshPhoenixStarterWeb, :verified_routes
 
   import Swoosh.Email
-  alias Stevia.Mailer
+  alias AshPhoenixStarter.Mailer
 
   @impl true
   def send(user_or_email, token, _) do

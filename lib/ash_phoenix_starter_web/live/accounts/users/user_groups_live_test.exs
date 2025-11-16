@@ -1,9 +1,9 @@
-defmodule SteviaWeb.Accounts.Users.UserGroupsLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Users.UserGroupsLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   defp create_group(actor) do
     Ash.Seed.seed!(
-      Stevia.Accounts.Group,
+      AshPhoenixStarter.Accounts.Group,
       %{name: "Group 1", description: "Test"},
       tenant: actor.current_team
     )

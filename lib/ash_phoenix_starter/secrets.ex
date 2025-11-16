@@ -1,9 +1,9 @@
-defmodule Stevia.Secrets do
+defmodule AshPhoenixStarter.Secrets do
   use AshAuthentication.Secret
 
   def secret_for(
         [:authentication, :tokens, :signing_secret],
-        Stevia.Accounts.User,
+        AshPhoenixStarter.Accounts.User,
         _opts,
         _context
       ) do

@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.Team.Changes.AddUserTeam do
+defmodule AshPhoenixStarter.Accounts.Team.Changes.AddUserTeam do
   @moduledoc """
   Link user to the team via user_teams relationship so that when
   we are listing owners teams, this team will be listed as well
@@ -11,7 +11,7 @@ defmodule Stevia.Accounts.Team.Changes.AddUserTeam do
   end
 
   defp associate_owner_to_team(_changeset, team) do
-    Stevia.Accounts.UserTeam
+    AshPhoenixStarter.Accounts.UserTeam
     |> Ash.Changeset.for_create(:create, %{user_id: team.owner_user_id, team_id: team.id})
     |> Ash.create!()
 

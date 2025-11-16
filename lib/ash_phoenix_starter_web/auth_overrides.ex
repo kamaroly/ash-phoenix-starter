@@ -1,4 +1,4 @@
-defmodule SteviaWeb.AuthOverrides do
+defmodule AshPhoenixStarterWeb.AuthOverrides do
   use AshAuthentication.Phoenix.Overrides
 
   # configure your UI overrides here

@@ -1,4 +1,4 @@
-defmodule Stevia.Repo do
+defmodule AshPhoenixStarter.Repo do
   use AshPostgres.Repo,
     otp_app: :AshPhoenixStarter
 
@@ -32,7 +32,7 @@ defmodule Stevia.Repo do
   """
   @impl AshPostgres.Repo
   def all_tenants do
-    Stevia.Accounts.Team
+    AshPhoenixStarter.Accounts.Team
     |> Ash.read!()
     |> Enum.map(& &1.domain)
   end

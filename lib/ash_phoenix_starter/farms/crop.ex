@@ -1,15 +1,15 @@
-defmodule Stevia.Farms.Crop do
+defmodule AshPhoenixStarter.Farms.Crop do
   use Ash.Resource,
-    domain: Stevia.Farms,
+    domain: AshPhoenixStarter.Farms,
     data_layer: AshPostgres.DataLayer,
     fragments: [
-      Stevia.Accounts.Fragments.GlobalPolicies,
-      Stevia.Accounts.Fragments.Multitenancies
+      AshPhoenixStarter.Accounts.Fragments.GlobalPolicies,
+      AshPhoenixStarter.Accounts.Fragments.Multitenancies
     ]
 
   postgres do
     table "farm_crops"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   attributes do
@@ -40,6 +40,6 @@ defmodule Stevia.Farms.Crop do
   end
 
   relationships do
-    has_many :planting, Stevia.Farms.Planting
+    has_many :planting, AshPhoenixStarter.Farms.Planting
   end
 end

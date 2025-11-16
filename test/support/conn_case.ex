@@ -1,4 +1,4 @@
-defmodule SteviaWeb.ConnCase do
+defmodule AshPhoenixStarterWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule SteviaWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use SteviaWeb.ConnCase, async: true`, although
+  by setting `use AshPhoenixStarterWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,25 +20,25 @@ defmodule SteviaWeb.ConnCase do
   using do
     quote do
       # The default endpoint for testing
-      @endpoint SteviaWeb.Endpoint
+      @endpoint AshPhoenixStarterWeb.Endpoint
 
-      use SteviaWeb, :verified_routes
+      use AshPhoenixStarterWeb, :verified_routes
 
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
       import Phoenix.LiveViewTest
-      import SteviaWeb.ConnCase
+      import AshPhoenixStarterWeb.ConnCase
     end
   end
 
   setup tags do
-    Stevia.DataCase.setup_sandbox(tags)
+    AshPhoenixStarter.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 
   def login(conn, user) do
-    case AshAuthentication.Jwt.token_for_user(user, %{}, domain: Stevia.Accounts) do
+    case AshAuthentication.Jwt.token_for_user(user, %{}, domain: AshPhoenixStarter.Accounts) do
       {:ok, token, _claims} ->
         conn
         |> Phoenix.ConnTest.init_test_session(%{})
@@ -50,7 +50,7 @@ defmodule SteviaWeb.ConnCase do
   end
 
   def get_user() do
-    case Ash.read_first(Stevia.Accounts.User) do
+    case Ash.read_first(AshPhoenixStarter.Accounts.User) do
       {:ok, nil} -> create_user()
       {:ok, user} -> user
     end
@@ -60,7 +60,7 @@ defmodule SteviaWeb.ConnCase do
     # Create a user and the person team automatically.
     # The person team will be the tenant for the query
 
-    case Ash.read_first(Stevia.Accounts.User, authorize?: false) do
+    case Ash.read_first(AshPhoenixStarter.Accounts.User, authorize?: false) do
       {:ok, nil} ->
         user_params = %{
           email: "john.tester@example.com",
@@ -69,7 +69,7 @@ defmodule SteviaWeb.ConnCase do
         }
 
         Ash.create!(
-          Stevia.Accounts.User,
+          AshPhoenixStarter.Accounts.User,
           user_params,
           action: :register_with_password,
           authorize?: false
@@ -83,7 +83,7 @@ defmodule SteviaWeb.ConnCase do
   def get_group(user \\ nil) do
     actor = user || create_user()
 
-    case Ash.read_first(Stevia.Accounts.Group, actor: actor) do
+    case Ash.read_first(AshPhoenixStarter.Accounts.Group, actor: actor) do
       {:ok, nil} -> create_groups(actor) |> Enum.at(0)
       {:ok, group} -> group
     end
@@ -92,7 +92,7 @@ defmodule SteviaWeb.ConnCase do
   def get_groups(user \\ nil) do
     actor = user || create_user()
 
-    case Ash.read(Stevia.Accounts.Group, actor: actor) do
+    case Ash.read(AshPhoenixStarter.Accounts.Group, actor: actor) do
       {:ok, []} -> create_groups(actor)
       {:ok, groups} -> groups
     end
@@ -109,6 +109,6 @@ defmodule SteviaWeb.ConnCase do
       %{name: "HR", description: "Human resources specialist"}
     ]
 
-    Ash.Seed.seed!(Stevia.Accounts.Group, group_attrs, tenant: actor.current_team)
+    Ash.Seed.seed!(AshPhoenixStarter.Accounts.Group, group_attrs, tenant: actor.current_team)
   end
 end

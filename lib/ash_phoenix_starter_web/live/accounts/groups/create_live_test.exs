@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Groups.CreateLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Groups.CreateLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "Create Group" do
     test "Group can be created", %{conn: conn} do
@@ -26,7 +26,7 @@ defmodule SteviaWeb.Accounts.Groups.CreateLiveTest do
       # Confirm that the form was create
       require Ash.Query
 
-      assert Stevia.Accounts.Group
+      assert AshPhoenixStarter.Accounts.Group
              |> Ash.Query.filter(name == ^params.name)
              |> Ash.Query.filter(description == ^params.description)
              |> Ash.exists?(actor: user)

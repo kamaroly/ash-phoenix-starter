@@ -1,10 +1,10 @@
-defmodule Stevia.Ledger do
+defmodule AshPhoenixStarter.Ledger do
   use Ash.Domain,
     otp_app: :AshPhoenixStarter
 
   resources do
-    resource Stevia.Ledger.Account
-    resource Stevia.Ledger.Balance
-    resource Stevia.Ledger.Transfer
+    resource AshPhoenixStarter.Ledger.Account
+    resource AshPhoenixStarter.Ledger.Balance
+    resource AshPhoenixStarter.Ledger.Transfer
   end
 end

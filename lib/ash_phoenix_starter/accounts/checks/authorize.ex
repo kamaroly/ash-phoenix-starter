@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.Checks.Authorize do
+defmodule AshPhoenixStarter.Accounts.Checks.Authorize do
   use Ash.Policy.SimpleCheck
   require Ash.Query
 
@@ -27,7 +27,7 @@ defmodule Stevia.Accounts.Checks.Authorize do
 
   # Confirms if the actor is the owner of the current team
   defp is_current_team_owner?(actor) do
-    Stevia.Accounts.Team
+    AshPhoenixStarter.Accounts.Team
     |> Ash.Query.filter(owner_user_id == ^actor.id)
     |> Ash.Query.filter(domain == ^actor.current_team)
     |> Ash.exists?()
@@ -36,7 +36,7 @@ defmodule Stevia.Accounts.Checks.Authorize do
   # Confirms if the actor has required permissions to perform the current
   # action on the current resource
   defp can?(actor, context) do
-    Stevia.Accounts.User
+    AshPhoenixStarter.Accounts.User
     |> Ash.Query.filter(id == ^actor.id)
     |> Ash.Query.load(groups: :permissions)
     |> Ash.Query.filter(groups.permissions.resource == ^context.resource)

@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.User.Changes.AddToTeam do
+defmodule AshPhoenixStarter.Accounts.User.Changes.AddToTeam do
   use Ash.Resource.Change
 
   @impl Ash.Resource.Change
@@ -26,13 +26,13 @@ defmodule Stevia.Accounts.User.Changes.AddToTeam do
     require Ash.Query
 
     actor_team =
-      Stevia.Accounts.Team
+      AshPhoenixStarter.Accounts.Team
       |> Ash.Query.filter(domain == ^context.actor.current_team)
       |> Ash.read_first!(Ash.Context.to_opts(context))
 
     {:ok, _user_team} =
       Ash.create(
-        Stevia.Accounts.UserTeam,
+        AshPhoenixStarter.Accounts.UserTeam,
         %{user_id: user.id, team_id: actor_team.id},
         Ash.Context.to_opts(context)
       )

@@ -1,4 +1,4 @@
-defmodule Stevia.MixProject do
+defmodule AshPhoenixStarter.MixProject do
   use Mix.Project
 
   def project do
@@ -22,7 +22,7 @@ defmodule Stevia.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Stevia.Application, []},
+      mod: {AshPhoenixStarter.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

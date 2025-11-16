@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Groups.GroupsLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Groups.GroupsLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "Groups Live" do
     test "Listing groups", %{conn: conn} do
@@ -10,7 +10,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupsLiveTest do
         %{name: "Group 2", description: "Group 2 Desc"}
       ]
 
-      groups = Ash.Seed.seed!(Stevia.Accounts.Group, group_attrs, tenant: user.current_team)
+      groups = Ash.Seed.seed!(AshPhoenixStarter.Accounts.Group, group_attrs, tenant: user.current_team)
 
       {:ok, groups_live, html} =
         conn

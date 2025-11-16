@@ -1,7 +1,7 @@
-defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Accounts.Groups.GroupPermissionsLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -94,7 +94,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLive do
     require Ash.Query
 
     group_permissions =
-      Stevia.Accounts.GroupPermission
+      AshPhoenixStarter.Accounts.GroupPermission
       |> Ash.Query.filter(group_id == ^socket.assigns.group_id)
       |> Ash.read!(actor: socket.assigns.current_user)
 
@@ -106,7 +106,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLive do
   defp assign_group(socket) do
     group =
       Ash.get!(
-        Stevia.Accounts.Group,
+        AshPhoenixStarter.Accounts.Group,
         socket.assigns.group_id,
         actor: socket.assigns.current_user
       )
@@ -123,7 +123,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLive do
         %{resource: resource, action: action, group_id: group_id}
       end
 
-    Stevia.Accounts.GroupPermission
+    AshPhoenixStarter.Accounts.GroupPermission
     |> Ash.Changeset.for_create(:sync, %{permissions: permission_attributes})
     |> Ash.create(actor: current_user, tenant: current_user.current_team)
   end
@@ -131,7 +131,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLive do
   defp assign_group_permission_form(socket) do
     form =
       AshPhoenix.Form.for_create(
-        Stevia.Accounts.GroupPermission,
+        AshPhoenixStarter.Accounts.GroupPermission,
         :create,
         actor: socket.assigns.current_user
       )

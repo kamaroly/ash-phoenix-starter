@@ -1,12 +1,12 @@
-defmodule SteviaWeb do
+defmodule AshPhoenixStarterWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use SteviaWeb, :controller
-      use SteviaWeb, :html
+      use AshPhoenixStarterWeb, :controller
+      use AshPhoenixStarterWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,7 +40,7 @@ defmodule SteviaWeb do
     quote do
       use Phoenix.Controller, formats: [:html, :json]
 
-      use Gettext, backend: SteviaWeb.Gettext
+      use Gettext, backend: AshPhoenixStarterWeb.Gettext
 
       import Plug.Conn
 
@@ -144,7 +144,7 @@ defmodule SteviaWeb do
       defp get_after_submit_url(%{uri: uri}), do: uri.path
 
       @doc """
-      <SteviaWeb.CoreComponents.input
+      <AshPhoenixStarterWeb.CoreComponents.input
           :for={attribute <- @attributes}
           :if={attribute.writable?}
           type={get_field_type(attribute.type)}
@@ -185,16 +185,16 @@ defmodule SteviaWeb do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: SteviaWeb.Gettext
+      use Gettext, backend: AshPhoenixStarterWeb.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import SteviaWeb.CoreComponents
+      import AshPhoenixStarterWeb.CoreComponents
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS
-      alias SteviaWeb.Layouts
+      alias AshPhoenixStarterWeb.Layouts
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())
@@ -225,9 +225,9 @@ defmodule SteviaWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: SteviaWeb.Endpoint,
-        router: SteviaWeb.Router,
-        statics: SteviaWeb.static_paths()
+        endpoint: AshPhoenixStarterWeb.Endpoint,
+        router: AshPhoenixStarterWeb.Router,
+        statics: AshPhoenixStarterWeb.static_paths()
     end
   end
 

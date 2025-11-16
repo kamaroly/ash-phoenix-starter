@@ -1,9 +1,9 @@
-defmodule SteviaWeb.Accounts.Groups.EditLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Groups.EditLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   defp create_group(actor) do
     Ash.Seed.seed!(
-      Stevia.Accounts.Group,
+      AshPhoenixStarter.Accounts.Group,
       %{name: "Group 1", description: "Test"},
       tenant: actor.current_team
     )
@@ -29,7 +29,7 @@ defmodule SteviaWeb.Accounts.Groups.EditLiveTest do
       # Confirm that the form was create
       require Ash.Query
 
-      assert Stevia.Accounts.Group
+      assert AshPhoenixStarter.Accounts.Group
              |> Ash.Query.filter(id == ^group.id)
              |> Ash.Query.filter(name == ^params.name)
              |> Ash.Query.filter(description == ^params.description)

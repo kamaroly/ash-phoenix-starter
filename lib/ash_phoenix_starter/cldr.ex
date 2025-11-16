@@ -1,4 +1,4 @@
-defmodule Stevia.Cldr do
+defmodule AshPhoenixStarter.Cldr do
   use Cldr,
     locales: ["en"],
     default_locale: "en"

@@ -1,15 +1,15 @@
-defmodule Stevia.Farms do
+defmodule AshPhoenixStarter.Farms do
   use Ash.Domain
 
   resources do
-    resource Stevia.Farms.Farm
-    resource Stevia.Farms.Field
-    resource Stevia.Farms.Crop
-    resource Stevia.Farms.Employee
-    resource Stevia.Farms.Harvest
-    resource Stevia.Farms.Planting
-    resource Stevia.Farms.InputType
-    resource Stevia.Farms.LaborAssignment
-    resource Stevia.Farms.InputApplication
+    resource AshPhoenixStarter.Farms.Farm
+    resource AshPhoenixStarter.Farms.Field
+    resource AshPhoenixStarter.Farms.Crop
+    resource AshPhoenixStarter.Farms.Employee
+    resource AshPhoenixStarter.Farms.Harvest
+    resource AshPhoenixStarter.Farms.Planting
+    resource AshPhoenixStarter.Farms.InputType
+    resource AshPhoenixStarter.Farms.LaborAssignment
+    resource AshPhoenixStarter.Farms.InputApplication
   end
 end

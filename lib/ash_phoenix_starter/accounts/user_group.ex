@@ -1,12 +1,12 @@
-defmodule Stevia.Accounts.UserGroup do
+defmodule AshPhoenixStarter.Accounts.UserGroup do
   use Ash.Resource,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer,
     notifiers: Ash.Notifier.PubSub
 
   postgres do
     table "user_groups"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -17,16 +17,16 @@ defmodule Stevia.Accounts.UserGroup do
       accept []
       description "Sync user groups"
       argument :user_groups, {:array, :map}, allow_nil?: false
-      manual Stevia.Accounts.UserGroup.Changes.SyncUserGroups
+      manual AshPhoenixStarter.Accounts.UserGroup.Changes.SyncUserGroups
     end
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -40,13 +40,13 @@ defmodule Stevia.Accounts.UserGroup do
   end
 
   relationships do
-    belongs_to :group, Stevia.Accounts.Group do
+    belongs_to :group, AshPhoenixStarter.Accounts.Group do
       description "Relationshp with a group inside a tenant"
       source_attribute :group_id
       allow_nil? false
     end
 
-    belongs_to :user, Stevia.Accounts.User do
+    belongs_to :user, AshPhoenixStarter.Accounts.User do
       description "Permission for the user access group"
       source_attribute :user_id
       allow_nil? false

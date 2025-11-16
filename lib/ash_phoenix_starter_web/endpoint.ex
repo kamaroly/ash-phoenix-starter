@@ -1,4 +1,4 @@
-defmodule SteviaWeb.Endpoint do
+defmodule AshPhoenixStarterWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :AshPhoenixStarter
 
   # The session will be stored in the cookie and signed,
@@ -24,7 +24,7 @@ defmodule SteviaWeb.Endpoint do
     at: "/",
     from: :AshPhoenixStarter,
     gzip: not code_reloading?,
-    only: SteviaWeb.static_paths()
+    only: AshPhoenixStarterWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -51,5 +51,5 @@ defmodule SteviaWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug SteviaWeb.Router
+  plug AshPhoenixStarterWeb.Router
 end

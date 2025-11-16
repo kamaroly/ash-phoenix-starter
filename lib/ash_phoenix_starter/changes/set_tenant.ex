@@ -1,4 +1,4 @@
-defmodule Stevia.Changes.SetTenant do
+defmodule AshPhoenixStarter.Changes.SetTenant do
   @moduledoc """
   Sets user current_team on the changeset as the tenant for change query
   if the tenant is not already provided

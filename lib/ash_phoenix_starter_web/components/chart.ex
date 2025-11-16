@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Chart do
-  use SteviaWeb, :html
+defmodule AshPhoenixStarterWeb.Chart do
+  use AshPhoenixStarterWeb, :html
 
   @default_datasets [
     %{

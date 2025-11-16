@@ -1,4 +1,4 @@
-defmodule SteviaWeb.CoreComponents do
+defmodule AshPhoenixStarterWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -27,7 +27,7 @@ defmodule SteviaWeb.CoreComponents do
 
   """
   use Phoenix.Component
-  use Gettext, backend: SteviaWeb.Gettext
+  use Gettext, backend: AshPhoenixStarterWeb.Gettext
 
   alias Phoenix.LiveView.JS
 
@@ -521,9 +521,9 @@ defmodule SteviaWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(SteviaWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(AshPhoenixStarterWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(SteviaWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(AshPhoenixStarterWeb.Gettext, "errors", msg, opts)
     end
   end
 

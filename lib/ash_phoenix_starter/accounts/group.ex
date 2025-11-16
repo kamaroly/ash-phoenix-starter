@@ -1,12 +1,12 @@
-defmodule Stevia.Accounts.Group do
+defmodule AshPhoenixStarter.Accounts.Group do
   use Ash.Resource,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer,
     notifiers: Ash.Notifier.PubSub
 
   postgres do
     table "groups"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   code_interface do
@@ -19,7 +19,7 @@ defmodule Stevia.Accounts.Group do
   end
 
   pub_sub do
-    module SteviaWeb.Endpoint
+    module AshPhoenixStarterWeb.Endpoint
 
     prefix "groups"
 
@@ -29,11 +29,11 @@ defmodule Stevia.Accounts.Group do
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -57,14 +57,14 @@ defmodule Stevia.Accounts.Group do
   end
 
   relationships do
-    many_to_many :users, Stevia.Accounts.User do
-      through Stevia.Accounts.UserGroup
+    many_to_many :users, AshPhoenixStarter.Accounts.User do
+      through AshPhoenixStarter.Accounts.UserGroup
       source_attribute_on_join_resource :group_id
       destination_attribute_on_join_resource :user_id
     end
 
-    # lib/Stevia/accounts/group.ex
-    has_many :permissions, Stevia.Accounts.GroupPermission do
+    # lib/AshPhoenixStarter/accounts/group.ex
+    has_many :permissions, AshPhoenixStarter.Accounts.GroupPermission do
       description "List of permission assigned to this group"
       destination_attribute :group_id
     end

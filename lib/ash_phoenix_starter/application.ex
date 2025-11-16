@@ -1,4 +1,4 @@
-defmodule Stevia.Application do
+defmodule AshPhoenixStarter.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,20 +8,20 @@ defmodule Stevia.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      SteviaWeb.Telemetry,
-      Stevia.Repo,
+      AshPhoenixStarterWeb.Telemetry,
+      AshPhoenixStarter.Repo,
       {DNSCluster, query: Application.get_env(:AshPhoenixStarter, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: Stevia.PubSub},
-      # Start a worker by calling: Stevia.Worker.start_link(arg)
-      # {Stevia.Worker, arg},
+      {Phoenix.PubSub, name: AshPhoenixStarter.PubSub},
+      # Start a worker by calling: AshPhoenixStarter.Worker.start_link(arg)
+      # {AshPhoenixStarter.Worker, arg},
       # Start to serve requests, typically the last entry
-      SteviaWeb.Endpoint,
+      AshPhoenixStarterWeb.Endpoint,
       {AshAuthentication.Supervisor, [otp_app: :AshPhoenixStarter]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Stevia.Supervisor]
+    opts = [strategy: :one_for_one, name: AshPhoenixStarter.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -29,7 +29,7 @@ defmodule Stevia.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    SteviaWeb.Endpoint.config_change(changed, removed)
+    AshPhoenixStarterWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

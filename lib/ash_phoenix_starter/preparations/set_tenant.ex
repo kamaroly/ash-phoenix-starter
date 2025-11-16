@@ -1,4 +1,4 @@
-defmodule Stevia.Preparations.SetTenant do
+defmodule AshPhoenixStarter.Preparations.SetTenant do
   @moduledoc """
   Sets user current_team on a preparation as the tenant for change query
   if the tenant is not already provided

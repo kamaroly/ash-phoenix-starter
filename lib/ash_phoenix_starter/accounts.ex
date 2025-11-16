@@ -1,15 +1,15 @@
-defmodule Stevia.Accounts do
+defmodule AshPhoenixStarter.Accounts do
   use Ash.Domain,
     otp_app: :AshPhoenixStarter
 
   resources do
-    resource Stevia.Accounts.Token
-    resource Stevia.Accounts.User
-    resource Stevia.Accounts.Team
-    resource Stevia.Accounts.UserTeam
+    resource AshPhoenixStarter.Accounts.Token
+    resource AshPhoenixStarter.Accounts.User
+    resource AshPhoenixStarter.Accounts.Team
+    resource AshPhoenixStarter.Accounts.UserTeam
 
-    resource Stevia.Accounts.Group
-    resource Stevia.Accounts.UserGroup
-    resource Stevia.Accounts.GroupPermission
+    resource AshPhoenixStarter.Accounts.Group
+    resource AshPhoenixStarter.Accounts.UserGroup
+    resource AshPhoenixStarter.Accounts.GroupPermission
   end
 end

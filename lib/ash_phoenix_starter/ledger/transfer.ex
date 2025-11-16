@@ -1,18 +1,18 @@
-defmodule Stevia.Ledger.Transfer do
+defmodule AshPhoenixStarter.Ledger.Transfer do
   use Ash.Resource,
-    domain: Elixir.Stevia.Ledger,
+    domain: Elixir.AshPhoenixStarter.Ledger,
     data_layer: AshPostgres.DataLayer,
     extensions: [AshDoubleEntry.Transfer],
     authorizers: [Ash.Policy.Authorizer]
 
   transfer do
-    account_resource Stevia.Ledger.Account
-    balance_resource Stevia.Ledger.Balance
+    account_resource AshPhoenixStarter.Ledger.Account
+    balance_resource AshPhoenixStarter.Ledger.Balance
   end
 
   postgres do
     table "ledger_transfers"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -26,16 +26,16 @@ defmodule Stevia.Ledger.Transfer do
   policies do
     policy always() do
       access_type :strict
-      authorize_if Stevia.Accounts.Checks.Authorize
+      authorize_if AshPhoenixStarter.Accounts.Checks.Authorize
     end
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -57,14 +57,14 @@ defmodule Stevia.Ledger.Transfer do
   end
 
   relationships do
-    belongs_to :from_account, Stevia.Ledger.Account do
+    belongs_to :from_account, AshPhoenixStarter.Ledger.Account do
       attribute_writable? true
     end
 
-    belongs_to :to_account, Stevia.Ledger.Account do
+    belongs_to :to_account, AshPhoenixStarter.Ledger.Account do
       attribute_writable? true
     end
 
-    has_many :balances, Stevia.Ledger.Balance
+    has_many :balances, AshPhoenixStarter.Ledger.Balance
   end
 end

@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Ledger.ChartOfAccountsLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Ledger.ChartOfAccountsLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   defp create_accounts(tenant) do
     %{status: :success, records: records} =
@@ -7,7 +7,7 @@ defmodule SteviaWeb.Ledger.ChartOfAccountsLiveTest do
         %{identifier: "6100", name: "Matieres et fournitures", nature: "CHARGES", currency: :rwf},
         %{identifier: "7711", name: "Interets - Urgent Loan", nature: "PRODUITS", currency: :rwf}
       ]
-      |> Ash.bulk_create(Stevia.Ledger.Account, :open,
+      |> Ash.bulk_create(AshPhoenixStarter.Ledger.Account, :open,
         tenant: tenant,
         authorize?: false,
         return_records?: true

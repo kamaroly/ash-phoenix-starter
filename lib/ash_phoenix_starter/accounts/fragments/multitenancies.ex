@@ -1,12 +1,12 @@
-defmodule Stevia.Accounts.Fragments.Multitenancies do
+defmodule AshPhoenixStarter.Accounts.Fragments.Multitenancies do
   use Spark.Dsl.Fragment, of: Ash.Resource
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do

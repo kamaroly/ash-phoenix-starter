@@ -1,11 +1,11 @@
-defmodule SteviaWeb.CoreComponents.AshFormTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.CoreComponents.AshFormTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "Ash Form" do
     test "Form can be rendered" do
       _assigns = %{
         id: Ash.UUIDv7.generate(),
-        resource: Stevia.Members.Member,
+        resource: AshPhoenixStarter.Members.Member,
         actor: %{},
         tenant: "test",
         authorize?: false

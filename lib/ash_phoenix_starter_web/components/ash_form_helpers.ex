@@ -1,4 +1,4 @@
-defmodule SteviaWeb.AshFormHelpers do
+defmodule AshPhoenixStarterWeb.AshFormHelpers do
   @moduledoc """
 
   Your must implement update/2 in livecomponent or mount/3 in liveview
@@ -14,7 +14,7 @@ defmodule SteviaWeb.AshFormHelpers do
 
   --------------------------------------------------
    <Phoenix.Component.form for={@form} phx-change="validate" phx-submit="save" phx-target={@myself}>
-         <SteviaWeb.CoreComponents.input
+         <AshPhoenixStarterWeb.CoreComponents.input
             field={@form[attribute.name]}
             label={"Same input"}
           />
@@ -29,7 +29,7 @@ defmodule SteviaWeb.AshFormHelpers do
 
         <%!-- Auto-generate input fields if inner block is not provided --%>
         <div>
-          <SteviaWeb.CoreComponents.input
+          <AshPhoenixStarterWeb.CoreComponents.input
             :for={attribute <- @attributes}
             :if={attribute.writable?}
             type={get_field_type(attribute.type)}
@@ -38,7 +38,7 @@ defmodule SteviaWeb.AshFormHelpers do
           />
         </div>
 
-        <SteviaWeb.CoreComponents.button>Submit</SteviaWeb.CoreComponents.button>
+        <AshPhoenixStarterWeb.CoreComponents.button>Submit</AshPhoenixStarterWeb.CoreComponents.button>
       </Phoenix.Component.form>
 
   """
@@ -99,7 +99,7 @@ defmodule SteviaWeb.AshFormHelpers do
 
   def render_attributes(assigns) do
     ~H"""
-    <SteviaWeb.CoreComponents.input
+    <AshPhoenixStarterWeb.CoreComponents.input
       :for={attribute <- @attributes}
       :if={attribute.writable?}
       type={get_field_type(attribute.type)}

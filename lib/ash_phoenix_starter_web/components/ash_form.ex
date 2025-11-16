@@ -1,4 +1,4 @@
-defmodule SteviaWeb.AshForm do
+defmodule AshPhoenixStarterWeb.AshForm do
   @moduledoc """
   A Phoenix LiveComponent for rendering forms based on Ash resources.
 
@@ -23,15 +23,15 @@ defmodule SteviaWeb.AshForm do
   of the specified resource.
 
   ```elixir
-  <SteviaWeb.AshForm.form
-    resource={Stevia.Members.Member}
+  <AshPhoenixStarterWeb.AshForm.form
+    resource={AshPhoenixStarter.Members.Member}
     actor={@current_user}
     after_save_redirect_to={~p"/members"}
   />
   ```
 
   This will generate a form with input fields for all writable attributes of the
-  `Stevia.Members.Member` resource, such as `name`, `email`, etc., based on the resource’s
+  `AshPhoenixStarter.Members.Member` resource, such as `name`, `email`, etc., based on the resource’s
   attribute definitions. The form submits to create or update a record and redirects to
   `/members` on success.
 
@@ -41,8 +41,8 @@ defmodule SteviaWeb.AshForm do
   align with AshPhoenix form handling.
 
   ```elixir
-  <SteviaWeb.AshForm.form
-    resource={Stevia.Members.Member}
+  <AshPhoenixStarterWeb.AshForm.form
+    resource={AshPhoenixStarter.Members.Member}
     actor={@current_user}
     after_save_redirect_to={~p"/members"}
   >
@@ -60,7 +60,7 @@ defmodule SteviaWeb.AshForm do
         class="w-full input"
       />
     </:inner_block>
-  </SteviaWeb.AshForm.form>
+  </AshPhoenixStarterWeb.AshForm.form>
   ```
 
   This renders a form with custom input fields for `email` and `name`, styled with the
@@ -85,7 +85,7 @@ defmodule SteviaWeb.AshForm do
   - Ash
   - AshPhoenix
   - Phoenix.LiveComponent
-  - SteviaWeb.CoreComponents (for input and button components)
+  - AshPhoenixStarterWeb.CoreComponents (for input and button components)
   - Gettext (for internationalization)
 
   ## Notes
@@ -96,7 +96,7 @@ defmodule SteviaWeb.AshForm do
     to `text` inputs.
   """
 
-  use Gettext, backend: SteviaWeb.Gettext
+  use Gettext, backend: AshPhoenixStarterWeb.Gettext
   use Phoenix.LiveComponent
 
   alias AshPhoenix.Form
@@ -105,7 +105,7 @@ defmodule SteviaWeb.AshForm do
   attr :id, :string, default: Ash.UUIDv7.generate()
   attr :resource, :atom, required: true
   attr :record, :map, default: nil
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   attr :tenant, :string, default: nil
   attr :authorize?, :boolean, default: true
   attr :record_id, :string, default: nil
@@ -120,8 +120,8 @@ defmodule SteviaWeb.AshForm do
 
   ## Example
   ```elixir
-  <SteviaWeb.AshForm.form
-    resource={Stevia.Members.Member}
+  <AshPhoenixStarterWeb.AshForm.form
+    resource={AshPhoenixStarter.Members.Member}
     actor={@current_user}
     after_save_redirect_to={~p"/members"}
   />
@@ -163,7 +163,7 @@ defmodule SteviaWeb.AshForm do
 
         <%!-- Auto-generate input fields if inner block is not provided --%>
         <div>
-          <SteviaWeb.CoreComponents.input
+          <AshPhoenixStarterWeb.CoreComponents.input
             :for={attribute <- @attributes}
             :if={attribute.writable?}
             type={get_field_type(attribute.type)}
@@ -172,7 +172,7 @@ defmodule SteviaWeb.AshForm do
           />
         </div>
 
-        <SteviaWeb.CoreComponents.button>Submit</SteviaWeb.CoreComponents.button>
+        <AshPhoenixStarterWeb.CoreComponents.button>Submit</AshPhoenixStarterWeb.CoreComponents.button>
       </Phoenix.Component.form>
     </div>
     """

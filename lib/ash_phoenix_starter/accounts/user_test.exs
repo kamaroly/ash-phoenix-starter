@@ -1,5 +1,5 @@
-defmodule Stevia.Accounts.UserTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarter.Accounts.UserTest do
+  use AshPhoenixStarterWeb.ConnCase
   require Ash.Query
 
   describe "User tests:" do
@@ -13,14 +13,14 @@ defmodule Stevia.Accounts.UserTest do
 
       user =
         Ash.create!(
-          Stevia.Accounts.User,
+          AshPhoenixStarter.Accounts.User,
           user_params,
           action: :register_with_password,
           authorize?: false
         )
 
       # Confirm that the new user has a personal team created for them automatically
-      refute Stevia.Accounts.User
+      refute AshPhoenixStarter.Accounts.User
              |> Ash.Query.filter(id == ^user.id)
              |> Ash.Query.load(:groups)
              |> Ash.Query.filter(email == ^user_params.email)
@@ -33,7 +33,7 @@ defmodule Stevia.Accounts.UserTest do
 
       {:ok, invited_user} =
         Ash.create(
-          Stevia.Accounts.User,
+          AshPhoenixStarter.Accounts.User,
           %{email: "invited_user@example.com"},
           action: :invite,
           actor: user,

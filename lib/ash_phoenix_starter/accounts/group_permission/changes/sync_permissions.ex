@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.GroupPermission.Changes.SyncPermissions do
+defmodule AshPhoenixStarter.Accounts.GroupPermission.Changes.SyncPermissions do
   use Ash.Resource.ManualCreate
 
   @impl Ash.Resource.ManualCreate
@@ -18,7 +18,7 @@ defmodule Stevia.Accounts.GroupPermission.Changes.SyncPermissions do
     require Ash.Query
     %{group_id: group_id} = List.first(changeset.arguments.permissions)
 
-    Stevia.Accounts.GroupPermission
+    AshPhoenixStarter.Accounts.GroupPermission
     |> Ash.Query.filter(group_id == ^group_id)
     |> Ash.bulk_destroy!(:destroy, %{}, Ash.Context.to_opts(context))
   end
@@ -26,7 +26,7 @@ defmodule Stevia.Accounts.GroupPermission.Changes.SyncPermissions do
   defp create_group_permissions(changeset, context) do
     Ash.bulk_create(
       changeset.arguments.permissions,
-      Stevia.Accounts.GroupPermission,
+      AshPhoenixStarter.Accounts.GroupPermission,
       :create,
       tenant: context.tenant,
       actor: context.actor,

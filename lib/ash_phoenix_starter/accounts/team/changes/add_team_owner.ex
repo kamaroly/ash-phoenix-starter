@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.Team.Changes.AddTeamOwner do
+defmodule AshPhoenixStarter.Accounts.Team.Changes.AddTeamOwner do
   use Ash.Resource.Change
 
   @impl Ash.Resource.Change

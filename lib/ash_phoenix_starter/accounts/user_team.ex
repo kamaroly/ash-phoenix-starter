@@ -1,11 +1,11 @@
-defmodule Stevia.Accounts.UserTeam do
+defmodule AshPhoenixStarter.Accounts.UserTeam do
   use Ash.Resource,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer
 
   postgres do
     table "user_teams"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   resource do
@@ -24,11 +24,11 @@ defmodule Stevia.Accounts.UserTeam do
   end
 
   relationships do
-    belongs_to :user, Stevia.Accounts.User do
+    belongs_to :user, AshPhoenixStarter.Accounts.User do
       source_attribute :user_id
     end
 
-    belongs_to :team, Stevia.Accounts.Team do
+    belongs_to :team, AshPhoenixStarter.Accounts.Team do
       source_attribute :team_id
     end
   end

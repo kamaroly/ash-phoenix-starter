@@ -1,7 +1,7 @@
-defmodule SteviaWeb.Ledger.CreateNewAccountLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Ledger.CreateNewAccountLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -30,7 +30,7 @@ defmodule SteviaWeb.Ledger.CreateNewAccountLive do
   def mount(_params, _session, socket) do
     socket
     |> assign(:after_submit_url, ~p"/ledger/chart-of-accounts")
-    |> assign(:resource, Stevia.Ledger.Account)
+    |> assign(:resource, AshPhoenixStarter.Ledger.Account)
     |> assign(:action_name, :open)
     |> assign_query_opts()
     |> assign_attributes()

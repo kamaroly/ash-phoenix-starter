@@ -1,6 +1,6 @@
-defmodule SteviaWeb.DashboardLive do
-  use SteviaWeb, :live_view
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+defmodule AshPhoenixStarterWeb.DashboardLive do
+  use AshPhoenixStarterWeb, :live_view
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -42,7 +42,7 @@ defmodule SteviaWeb.DashboardLive do
         <div class="card border border-primary">
           <div class="card-body">
             <h2 class="card-title">Merchant Locations Map</h2>
-            <SteviaWeb.Map.map />
+            <AshPhoenixStarterWeb.Map.map />
           </div>
         </div>
 
@@ -50,7 +50,7 @@ defmodule SteviaWeb.DashboardLive do
         <div class="card bg-base-100 border border-primary ">
           <div class="card-body">
             <h2 class="card-title">Actual vs Predicted Sales (Today)</h2>
-            <SteviaWeb.Chart.chart />
+            <AshPhoenixStarterWeb.Chart.chart />
           </div>
           <div class="divider" />
           <div class="card-body">

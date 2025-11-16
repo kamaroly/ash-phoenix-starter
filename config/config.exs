@@ -7,7 +7,7 @@
 # General application configuration
 import Config
 
-config :ex_cldr, default_backend: Stevia.Cldr
+config :ex_cldr, default_backend: AshPhoenixStarter.Cldr
 config :cinder, default_theme: "modern"
 
 config :ash,
@@ -54,23 +54,23 @@ config :spark,
   ]
 
 config :AshPhoenixStarter,
-  ecto_repos: [Stevia.Repo],
+  ecto_repos: [AshPhoenixStarter.Repo],
   generators: [timestamp_type: :utc_datetime],
   ash_domains: [
-    Stevia.Farms,
-    Stevia.Ledger,
-    Stevia.Accounts
+    AshPhoenixStarter.Farms,
+    AshPhoenixStarter.Ledger,
+    AshPhoenixStarter.Accounts
   ]
 
 # Configures the endpoint
-config :AshPhoenixStarter, SteviaWeb.Endpoint,
+config :AshPhoenixStarter, AshPhoenixStarterWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: SteviaWeb.ErrorHTML, json: SteviaWeb.ErrorJSON],
+    formats: [html: AshPhoenixStarterWeb.ErrorHTML, json: AshPhoenixStarterWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Stevia.PubSub,
+  pubsub_server: AshPhoenixStarter.PubSub,
   live_view: [signing_salt: "waEAzL0/"]
 
 # Configures the mailer
@@ -80,7 +80,7 @@ config :AshPhoenixStarter, SteviaWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :AshPhoenixStarter, Stevia.Mailer, adapter: Swoosh.Adapters.Local
+config :AshPhoenixStarter, AshPhoenixStarter.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

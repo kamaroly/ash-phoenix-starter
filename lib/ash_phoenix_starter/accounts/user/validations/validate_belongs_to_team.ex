@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.User.Validations.ValidateBelongsToTeam do
+defmodule AshPhoenixStarter.Accounts.User.Validations.ValidateBelongsToTeam do
   use Ash.Resource.Validation
 
   @impl Ash.Resource.Validation
@@ -19,7 +19,7 @@ defmodule Stevia.Accounts.User.Validations.ValidateBelongsToTeam do
   end
 
   defp user_belongs_to_team?(subject) do
-    Stevia.Accounts.User
+    AshPhoenixStarter.Accounts.User
     |> Ash.Query.filter(teams.domain == ^subject.arguments.team)
     |> Ash.Query.filter(id == ^subject.data.id)
     |> Ash.exists?(authorize?: false)

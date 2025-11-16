@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.User.Validations.ValidateNewToTeam do
+defmodule AshPhoenixStarter.Accounts.User.Validations.ValidateNewToTeam do
   use Ash.Resource.Validation
 
   @impl Ash.Resource.Validation
@@ -21,7 +21,7 @@ defmodule Stevia.Accounts.User.Validations.ValidateNewToTeam do
   def atomic(changeset, opts, context), do: validate(changeset, opts, context)
 
   defp user_new_to_team?(changeset, context) do
-    Stevia.Accounts.User
+    AshPhoenixStarter.Accounts.User
     |> Ash.Query.filter(email == ^changeset.attributes.email)
     |> Ash.Query.filter(teams.domain == ^context.actor.current_team)
     |> Ash.exists?(authorize?: false) == false

@@ -1,9 +1,9 @@
-defmodule SteviaWeb.Layouts do
+defmodule AshPhoenixStarterWeb.Layouts do
   @moduledoc """
   This module holds layouts and related functionality
   used by your application.
   """
-  use SteviaWeb, :html
+  use AshPhoenixStarterWeb, :html
 
   @doc """
   Renders your app layout.
@@ -25,7 +25,7 @@ defmodule SteviaWeb.Layouts do
     default: nil,
     doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
 
-  attr :current_user, Stevia.Accounts.User
+  attr :current_user, AshPhoenixStarter.Accounts.User
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -65,7 +65,7 @@ defmodule SteviaWeb.Layouts do
             </svg>
           </button>
           <nav>
-            <.left_nav menu={SteviaWeb.Menu.left_menu()} uri={@uri} />
+            <.left_nav menu={AshPhoenixStarterWeb.Menu.left_menu()} uri={@uri} />
           </nav>
         </aside>
         
@@ -158,7 +158,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -173,7 +173,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -188,7 +188,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -205,7 +205,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -224,7 +224,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 
@@ -242,7 +242,7 @@ defmodule SteviaWeb.Layouts do
   end
 
   attr :flash, :map, required: true, doc: "the map of flash messages"
-  attr :current_user, Stevia.Accounts.User, required: true
+  attr :current_user, AshPhoenixStarter.Accounts.User, required: true
   slot :inner_block, required: true
   attr :uri, URI, default: %URI{}
 

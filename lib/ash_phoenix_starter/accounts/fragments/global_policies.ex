@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.Fragments.GlobalPolicies do
+defmodule AshPhoenixStarter.Accounts.Fragments.GlobalPolicies do
   use Spark.Dsl.Fragment,
     of: Ash.Resource,
     authorizers: [Ash.Policy.Authorizer]
@@ -6,7 +6,7 @@ defmodule Stevia.Accounts.Fragments.GlobalPolicies do
   policies do
     policy always() do
       access_type :strict
-      authorize_if Stevia.Accounts.Checks.Authorize
+      authorize_if AshPhoenixStarter.Accounts.Checks.Authorize
     end
   end
 end

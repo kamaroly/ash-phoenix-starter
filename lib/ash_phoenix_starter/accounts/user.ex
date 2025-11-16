@@ -1,7 +1,7 @@
-defmodule Stevia.Accounts.User do
+defmodule AshPhoenixStarter.Accounts.User do
   use Ash.Resource,
     otp_app: :AshPhoenixStarter,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer,
     authorizers: [Ash.Policy.Authorizer],
     extensions: [AshAuthentication]
@@ -19,14 +19,14 @@ defmodule Stevia.Accounts.User do
         require_interaction? true
         confirmed_at_field :confirmed_at
         auto_confirm_actions [:sign_in_with_magic_link, :reset_password_with_token]
-        sender Stevia.Accounts.User.Senders.SendNewUserConfirmationEmail
+        sender AshPhoenixStarter.Accounts.User.Senders.SendNewUserConfirmationEmail
       end
     end
 
     tokens do
       enabled? true
-      token_resource Stevia.Accounts.Token
-      signing_secret Stevia.Secrets
+      token_resource AshPhoenixStarter.Accounts.Token
+      signing_secret AshPhoenixStarter.Secrets
       store_all_tokens? true
       require_token_presence_for_authentication? true
     end
@@ -37,7 +37,7 @@ defmodule Stevia.Accounts.User do
         hash_provider AshAuthentication.BcryptProvider
 
         resettable do
-          sender Stevia.Accounts.User.Senders.SendPasswordResetEmail
+          sender AshPhoenixStarter.Accounts.User.Senders.SendPasswordResetEmail
           # these configurations will be the default in a future release
           password_reset_action_name :reset_password_with_token
           request_password_reset_action_name :request_password_reset_token
@@ -49,14 +49,14 @@ defmodule Stevia.Accounts.User do
         registration_enabled? true
         require_interaction? true
 
-        sender Stevia.Accounts.User.Senders.SendMagicLinkEmail
+        sender AshPhoenixStarter.Accounts.User.Senders.SendMagicLinkEmail
       end
     end
   end
 
   postgres do
     table "users"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -282,7 +282,7 @@ defmodule Stevia.Accounts.User do
     update :switch_team_to do
       description "Swith user team to the new one"
       argument :team, :string
-      validate Stevia.Accounts.User.Validations.ValidateBelongsToTeam
+      validate AshPhoenixStarter.Accounts.User.Validations.ValidateBelongsToTeam
       change set_attribute(:current_team, arg(:team))
     end
 
@@ -290,9 +290,9 @@ defmodule Stevia.Accounts.User do
       description "Invite a new user to the team"
       accept [:email]
 
-      validate Stevia.Accounts.User.Validations.ValidateNewToTeam
-      manual Stevia.Accounts.User.Actions.CreateUserIfNotExists
-      change Stevia.Accounts.User.Changes.AddToTeam
+      validate AshPhoenixStarter.Accounts.User.Validations.ValidateNewToTeam
+      manual AshPhoenixStarter.Accounts.User.Actions.CreateUserIfNotExists
+      change AshPhoenixStarter.Accounts.User.Changes.AddToTeam
     end
   end
 
@@ -311,7 +311,7 @@ defmodule Stevia.Accounts.User do
   end
 
   changes do
-    change Stevia.Accounts.User.Changes.CreatePersonTeam
+    change AshPhoenixStarter.Accounts.User.Changes.CreatePersonTeam
   end
 
   attributes do
@@ -337,20 +337,20 @@ defmodule Stevia.Accounts.User do
   end
 
   relationships do
-    belongs_to :team, Stevia.Accounts.Team do
+    belongs_to :team, AshPhoenixStarter.Accounts.Team do
       description "Current team object"
       source_attribute :current_team
       destination_attribute :domain
     end
 
-    many_to_many :teams, Stevia.Accounts.Team do
-      through Stevia.Accounts.UserTeam
+    many_to_many :teams, AshPhoenixStarter.Accounts.Team do
+      through AshPhoenixStarter.Accounts.UserTeam
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :team_id
     end
 
-    many_to_many :groups, Stevia.Accounts.Group do
-      through Stevia.Accounts.UserGroup
+    many_to_many :groups, AshPhoenixStarter.Accounts.Group do
+      through AshPhoenixStarter.Accounts.UserGroup
       source_attribute_on_join_resource :user_id
       destination_attribute_on_join_resource :group_id
     end

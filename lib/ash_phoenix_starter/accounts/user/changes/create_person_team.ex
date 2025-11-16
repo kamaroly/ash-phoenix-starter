@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.User.Changes.CreatePersonTeam do
+defmodule AshPhoenixStarter.Accounts.User.Changes.CreatePersonTeam do
   use Ash.Resource.Change
 
   def change(changeset, _opts, _context) do
@@ -15,10 +15,10 @@ defmodule Stevia.Accounts.User.Changes.CreatePersonTeam do
   end
 
   defp create_personal_team(_changeset, user) do
-    team_count = Ash.count!(Stevia.Accounts.Team) + 1
+    team_count = Ash.count!(AshPhoenixStarter.Accounts.Team) + 1
     team_attrs = %{name: "Personal Team", domain: "personal_team_#{team_count}"}
 
-    {:ok, _team} = Ash.create(Stevia.Accounts.Team, team_attrs, actor: user)
+    {:ok, _team} = Ash.create(AshPhoenixStarter.Accounts.Team, team_attrs, actor: user)
     {:ok, Map.put(user, :current_team, team_attrs.domain)}
   end
 end

@@ -1,14 +1,14 @@
-defmodule Stevia.Accounts.User.Senders.SendNewUserConfirmationEmail do
+defmodule AshPhoenixStarter.Accounts.User.Senders.SendNewUserConfirmationEmail do
   @moduledoc """
   Sends an email for a new user to confirm their email address.
   """
 
   use AshAuthentication.Sender
-  use SteviaWeb, :verified_routes
+  use AshPhoenixStarterWeb, :verified_routes
 
   import Swoosh.Email
 
-  alias Stevia.Mailer
+  alias AshPhoenixStarter.Mailer
 
   @impl true
   def send(user, token, _) do

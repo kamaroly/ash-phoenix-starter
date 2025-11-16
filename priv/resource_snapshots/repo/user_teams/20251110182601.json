@@ -130,7 +130,7 @@
     "global": null,
     "strategy": null
   },
-  "repo": "Elixir.Stevia.Repo",
+  "repo": "Elixir.ash_phoenix_starter.Repo",
   "schema": null,
   "table": "user_teams"
 }

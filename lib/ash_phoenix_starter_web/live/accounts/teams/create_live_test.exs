@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Teams.CreateLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Teams.CreateLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "User Teams" do
     test "Create User Team", %{conn: conn} do
@@ -26,7 +26,7 @@ defmodule SteviaWeb.Accounts.Teams.CreateLiveTest do
       # Confirm that the form was create
       require Ash.Query
 
-      assert Stevia.Accounts.Team
+      assert AshPhoenixStarter.Accounts.Team
              |> Ash.Query.filter(name == ^params.name)
              |> Ash.Query.filter(users.id == ^user.id)
              |> Ash.Query.filter(domain == ^params.domain)

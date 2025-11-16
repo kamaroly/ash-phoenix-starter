@@ -1,7 +1,7 @@
-defmodule SteviaWeb.Reports.GraphsLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Reports.GraphsLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -16,7 +16,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title border-b border-primary/60">Sales per Region</h2>
             <p>Aggregated sales data by geographic region.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="bar" />
+              <AshPhoenixStarterWeb.Chart.chart type="bar" />
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title border-b border-primary/60">Weekly Sales</h2>
             <p>Weekly aggregated sales trends.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="line" />
+              <AshPhoenixStarterWeb.Chart.chart type="line" />
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title border-b border-primary/60">Top 10 Merchants</h2>
             <p>Ranking of top merchants by sales volume.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="radar" />
+              <AshPhoenixStarterWeb.Chart.chart type="radar" />
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title border-b border-primary/60">Monthly Sales</h2>
             <p>Monthly aggregated sales data.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="doughnut" />
+              <AshPhoenixStarterWeb.Chart.chart type="doughnut" />
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title  border-b border-primary/60">Distribution Efficiency</h2>
             <p>Aggregated efficiency metrics.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="bubble" />
+              <AshPhoenixStarterWeb.Chart.chart type="bubble" />
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ defmodule SteviaWeb.Reports.GraphsLive do
             <h2 class="card-title  border-b border-primary/60">Revenue Growth</h2>
             <p>Year-over-year revenue growth.</p>
             <div class="overflow-x-auto">
-              <SteviaWeb.Chart.chart type="line" />
+              <AshPhoenixStarterWeb.Chart.chart type="line" />
             </div>
           </div>
         </div>

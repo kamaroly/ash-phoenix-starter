@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.Team.Changes.SwitchActorTeam do
+defmodule AshPhoenixStarter.Accounts.Team.Changes.SwitchActorTeam do
   use Ash.Resource.Change
 
   def change(changeset, _team, _context) do
@@ -16,7 +16,7 @@ defmodule Stevia.Accounts.Team.Changes.SwitchActorTeam do
     opts = [authorize?: false]
 
     {:ok, _user} =
-      Stevia.Accounts.User
+      AshPhoenixStarter.Accounts.User
       |> Ash.get!(team.owner_user_id, opts)
       |> Ash.Changeset.for_update(:set_current_team, %{team: team.domain})
       |> Ash.update(opts)

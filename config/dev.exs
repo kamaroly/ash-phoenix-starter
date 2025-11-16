@@ -2,7 +2,7 @@ import Config
 config :ash, policies: [show_policy_breakdowns?: true]
 
 # Configure your database
-config :AshPhoenixStarter, Stevia.Repo,
+config :AshPhoenixStarter, AshPhoenixStarter.Repo,
   username: "postgres",
   password: "ikijumba",
   hostname: "localhost",
@@ -17,7 +17,7 @@ config :AshPhoenixStarter, Stevia.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :AshPhoenixStarter, SteviaWeb.Endpoint,
+config :AshPhoenixStarter, AshPhoenixStarterWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: String.to_integer(System.get_env("PORT") || "4000")],
@@ -54,7 +54,7 @@ config :AshPhoenixStarter, SteviaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :AshPhoenixStarter, SteviaWeb.Endpoint,
+config :AshPhoenixStarter, AshPhoenixStarterWeb.Endpoint,
   live_reload: [
     web_console_logger: true,
     patterns: [

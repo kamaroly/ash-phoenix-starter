@@ -1,15 +1,15 @@
-defmodule Stevia.Farms.InputApplication do
+defmodule AshPhoenixStarter.Farms.InputApplication do
   use Ash.Resource,
-    domain: Stevia.Farms,
+    domain: AshPhoenixStarter.Farms,
     data_layer: AshPostgres.DataLayer,
     fragments: [
-      Stevia.Accounts.Fragments.GlobalPolicies,
-      Stevia.Accounts.Fragments.Multitenancies
+      AshPhoenixStarter.Accounts.Fragments.GlobalPolicies,
+      AshPhoenixStarter.Accounts.Fragments.Multitenancies
     ]
 
   postgres do
     table "farm_input_applications"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   attributes do
@@ -34,7 +34,7 @@ defmodule Stevia.Farms.InputApplication do
   end
 
   relationships do
-    belongs_to :planting, Stevia.Farms.Planting
-    belongs_to :input_type, Stevia.Farms.InputType
+    belongs_to :planting, AshPhoenixStarter.Farms.Planting
+    belongs_to :input_type, AshPhoenixStarter.Farms.InputType
   end
 end

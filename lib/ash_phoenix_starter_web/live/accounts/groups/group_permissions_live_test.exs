@@ -1,9 +1,9 @@
-defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Groups.GroupPermissionsLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   defp create_group(actor) do
     Ash.Seed.seed!(
-      Stevia.Accounts.Group,
+      AshPhoenixStarter.Accounts.Group,
       %{name: "Group 1", description: "Test"},
       tenant: actor.current_team
     )
@@ -35,7 +35,7 @@ defmodule SteviaWeb.Accounts.Groups.GroupPermissionsLiveTest do
 
       %{permissions: perms} =
         Ash.get!(
-          Stevia.Accounts.Group,
+          AshPhoenixStarter.Accounts.Group,
           group.id,
           load: :permissions,
           actor: user

@@ -1,6 +1,6 @@
-defmodule SteviaWeb.Menu do
-  use Gettext, backend: SteviaWeb.Gettext
-  use SteviaWeb, :html
+defmodule AshPhoenixStarterWeb.Menu do
+  use Gettext, backend: AshPhoenixStarterWeb.Gettext
+  use AshPhoenixStarterWeb, :html
 
   @doc """
   Configure left menu in the application

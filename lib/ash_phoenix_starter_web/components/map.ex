@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Map do
-  use SteviaWeb, :html
+defmodule AshPhoenixStarterWeb.Map do
+  use AshPhoenixStarterWeb, :html
 
   def map(assigns) do
     ~H"""

@@ -127,7 +127,7 @@
     "global": false,
     "strategy": "context"
   },
-  "repo": "Elixir.Stevia.Repo",
+  "repo": "Elixir.ash_phoenix_starter.Repo",
   "schema": null,
   "table": "group_permissions"
 }

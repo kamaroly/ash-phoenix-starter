@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Ledger.CreateNewAccountLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Ledger.CreateNewAccountLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "Create new Ledger Account" do
     test "Create User Team", %{conn: conn} do
@@ -24,7 +24,7 @@ defmodule SteviaWeb.Ledger.CreateNewAccountLiveTest do
       # Confirm that the form was create
       require Ash.Query
 
-      assert Stevia.Ledger.Account
+      assert AshPhoenixStarter.Ledger.Account
              |> Ash.Query.filter(identifier == ^params.identifier)
              |> Ash.exists?(actor: user)
     end

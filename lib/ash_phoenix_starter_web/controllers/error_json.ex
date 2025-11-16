@@ -1,4 +1,4 @@
-defmodule SteviaWeb.ErrorJSON do
+defmodule AshPhoenixStarterWeb.ErrorJSON do
   @moduledoc """
   This module is invoked by your endpoint in case of errors on JSON requests.
 

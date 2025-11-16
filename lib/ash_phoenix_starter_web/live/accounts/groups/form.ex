@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Groups.Form do
-  use SteviaWeb, :html
+defmodule AshPhoenixStarterWeb.Accounts.Groups.Form do
+  use AshPhoenixStarterWeb, :html
 
   attr :form, :map, required: true
 

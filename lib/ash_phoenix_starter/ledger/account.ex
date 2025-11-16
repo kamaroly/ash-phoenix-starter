@@ -1,24 +1,24 @@
-defmodule Stevia.Ledger.Account do
+defmodule AshPhoenixStarter.Ledger.Account do
   use Ash.Resource,
-    domain: Elixir.Stevia.Ledger,
+    domain: Elixir.AshPhoenixStarter.Ledger,
     data_layer: AshPostgres.DataLayer,
     extensions: [AshDoubleEntry.Account],
     authorizers: [Ash.Policy.Authorizer]
 
   account do
     # configure the other resources it will interact with
-    transfer_resource Stevia.Ledger.Transfer
-    balance_resource Stevia.Ledger.Balance
+    transfer_resource AshPhoenixStarter.Ledger.Transfer
+    balance_resource AshPhoenixStarter.Ledger.Balance
   end
 
   account do
-    transfer_resource Stevia.Ledger.Transfer
-    balance_resource Stevia.Ledger.Balance
+    transfer_resource AshPhoenixStarter.Ledger.Transfer
+    balance_resource AshPhoenixStarter.Ledger.Balance
   end
 
   postgres do
     table "ledger_accounts"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -37,16 +37,16 @@ defmodule Stevia.Ledger.Account do
   policies do
     policy always() do
       access_type :strict
-      authorize_if Stevia.Accounts.Checks.Authorize
+      authorize_if AshPhoenixStarter.Accounts.Checks.Authorize
     end
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -76,7 +76,7 @@ defmodule Stevia.Ledger.Account do
   end
 
   relationships do
-    has_many :balances, Stevia.Ledger.Balance do
+    has_many :balances, AshPhoenixStarter.Ledger.Balance do
       destination_attribute :account_id
     end
   end

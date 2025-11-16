@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Teams.TeamsLiveTest do
-  use SteviaWeb.ConnCase
+defmodule AshPhoenixStarterWeb.Accounts.Teams.TeamsLiveTest do
+  use AshPhoenixStarterWeb.ConnCase
 
   describe "Teams" do
     test "List team", %{conn: conn} do
@@ -19,7 +19,7 @@ defmodule SteviaWeb.Accounts.Teams.TeamsLiveTest do
       unique_id = String.replace(Ash.UUIDv7.generate(), "-", "_")
       params = %{name: "Team #{unique_id}", domain: "team_#{unique_id}"}
 
-      {:ok, team_2} = Ash.create(Stevia.Accounts.Team, params, actor: user)
+      {:ok, team_2} = Ash.create(AshPhoenixStarter.Accounts.Team, params, actor: user)
 
       {:ok, view, html} =
         conn
@@ -36,7 +36,7 @@ defmodule SteviaWeb.Accounts.Teams.TeamsLiveTest do
 
       require Ash.Query
 
-      assert Stevia.Accounts.User
+      assert AshPhoenixStarter.Accounts.User
              |> Ash.Query.filter(current_team == ^team_2.domain)
              |> Ash.Query.filter(id == ^user.id)
              |> Ash.exists?(authorize?: false)

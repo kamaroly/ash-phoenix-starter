@@ -1,8 +1,8 @@
-defmodule Stevia.Accounts.Team do
+defmodule AshPhoenixStarter.Accounts.Team do
   require Ash.Resource.Change.Builtins
 
   use Ash.Resource,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer
 
   @doc """
@@ -22,7 +22,7 @@ defmodule Stevia.Accounts.Team do
 
   postgres do
     table "teams"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
 
     manage_tenant do
       template ["", :domain]
@@ -37,9 +37,9 @@ defmodule Stevia.Accounts.Team do
 
     create :create do
       primary? true
-      change Stevia.Accounts.Team.Changes.AddUserTeam
-      change Stevia.Accounts.Team.Changes.AddTeamOwner
-      change Stevia.Accounts.Team.Changes.SwitchActorTeam
+      change AshPhoenixStarter.Accounts.Team.Changes.AddUserTeam
+      change AshPhoenixStarter.Accounts.Team.Changes.AddTeamOwner
+      change AshPhoenixStarter.Accounts.Team.Changes.SwitchActorTeam
     end
 
     read :by_domain do
@@ -71,12 +71,12 @@ defmodule Stevia.Accounts.Team do
   end
 
   relationships do
-    belongs_to :owner, Stevia.Accounts.User do
+    belongs_to :owner, AshPhoenixStarter.Accounts.User do
       source_attribute :owner_user_id
     end
 
-    many_to_many :users, Stevia.Accounts.User do
-      through Stevia.Accounts.UserTeam
+    many_to_many :users, AshPhoenixStarter.Accounts.User do
+      through AshPhoenixStarter.Accounts.UserTeam
       source_attribute_on_join_resource :team_id
       destination_attribute_on_join_resource :user_id
     end

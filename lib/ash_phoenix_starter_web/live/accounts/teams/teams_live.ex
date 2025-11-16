@@ -1,6 +1,6 @@
-defmodule SteviaWeb.Accounts.Teams.TeamsLive do
-  use SteviaWeb, :live_view
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+defmodule AshPhoenixStarterWeb.Accounts.Teams.TeamsLive do
+  use AshPhoenixStarterWeb, :live_view
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   def render(assigns) do
     ~H"""
@@ -43,6 +43,6 @@ defmodule SteviaWeb.Accounts.Teams.TeamsLive do
 
   defp get_query(%{id: user_id}) do
     require Ash.Query
-    Ash.Query.filter(Stevia.Accounts.Team, users.id == ^user_id)
+    Ash.Query.filter(AshPhoenixStarter.Accounts.Team, users.id == ^user_id)
   end
 end

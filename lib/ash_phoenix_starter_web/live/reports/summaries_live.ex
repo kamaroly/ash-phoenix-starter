@@ -1,7 +1,7 @@
-defmodule SteviaWeb.Reports.SummariesLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Reports.SummariesLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do

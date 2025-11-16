@@ -1,5 +1,5 @@
-defmodule SteviaWeb.Accounts.Users.UserGroupsLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Accounts.Users.UserGroupsLive do
+  use AshPhoenixStarterWeb, :live_view
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -81,7 +81,7 @@ defmodule SteviaWeb.Accounts.Users.UserGroupsLive do
   defp sync_user_groups(user_groups, socket) do
     %{current_user: current_user} = socket.assigns
 
-    Stevia.Accounts.UserGroup
+    AshPhoenixStarter.Accounts.UserGroup
     |> Ash.Changeset.for_create(:sync, %{user_groups: user_groups})
     |> Ash.create(actor: current_user, tenant: current_user.current_team)
   end
@@ -95,7 +95,7 @@ defmodule SteviaWeb.Accounts.Users.UserGroupsLive do
   end
 
   defp get_user(%{current_user: current_user, user_id: user_id}) do
-    Ash.get!(Stevia.Accounts.User, user_id,
+    Ash.get!(AshPhoenixStarter.Accounts.User, user_id,
       authorize?: false,
       load: :groups,
       tenant: current_user.current_team
@@ -103,7 +103,7 @@ defmodule SteviaWeb.Accounts.Users.UserGroupsLive do
   end
 
   defp get_groups(current_user) do
-    {:ok, groups} = Ash.read(Stevia.Accounts.Group, tenant: current_user.current_team)
+    {:ok, groups} = Ash.read(AshPhoenixStarter.Accounts.Group, tenant: current_user.current_team)
     groups
   end
 

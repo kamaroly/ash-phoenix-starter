@@ -1,12 +1,12 @@
-defmodule Stevia.Accounts.GroupPermission do
+defmodule AshPhoenixStarter.Accounts.GroupPermission do
   use Ash.Resource,
-    domain: Stevia.Accounts,
+    domain: AshPhoenixStarter.Accounts,
     data_layer: AshPostgres.DataLayer,
     notifiers: Ash.Notifier.PubSub
 
   postgres do
     table "group_permissions"
-    repo Stevia.Repo
+    repo AshPhoenixStarter.Repo
   end
 
   actions do
@@ -17,16 +17,16 @@ defmodule Stevia.Accounts.GroupPermission do
       accept []
       description "Sync permissions"
       argument :permissions, {:array, :map}, allow_nil?: false
-      manual Stevia.Accounts.GroupPermission.Changes.SyncPermissions
+      manual AshPhoenixStarter.Accounts.GroupPermission.Changes.SyncPermissions
     end
   end
 
   preparations do
-    prepare Stevia.Preparations.SetTenant
+    prepare AshPhoenixStarter.Preparations.SetTenant
   end
 
   changes do
-    change Stevia.Changes.SetTenant
+    change AshPhoenixStarter.Changes.SetTenant
   end
 
   multitenancy do
@@ -41,7 +41,7 @@ defmodule Stevia.Accounts.GroupPermission do
   end
 
   relationships do
-    belongs_to :group, Stevia.Accounts.Group do
+    belongs_to :group, AshPhoenixStarter.Accounts.Group do
       description "Relationshp with a group inside a tenant"
       source_attribute :group_id
       allow_nil? false

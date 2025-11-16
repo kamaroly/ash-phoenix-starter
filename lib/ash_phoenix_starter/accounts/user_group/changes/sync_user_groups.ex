@@ -1,4 +1,4 @@
-defmodule Stevia.Accounts.UserGroup.Changes.SyncUserGroups do
+defmodule AshPhoenixStarter.Accounts.UserGroup.Changes.SyncUserGroups do
   use Ash.Resource.ManualCreate
 
   @impl Ash.Resource.ManualCreate
@@ -19,7 +19,7 @@ defmodule Stevia.Accounts.UserGroup.Changes.SyncUserGroups do
 
     %{user_id: user_id} = List.first(changeset.arguments.user_groups)
 
-    Stevia.Accounts.UserGroup
+    AshPhoenixStarter.Accounts.UserGroup
     |> Ash.Query.filter(user_id == ^user_id)
     |> Ash.bulk_destroy!(:destroy, %{}, Ash.Context.to_opts(context))
   end
@@ -27,7 +27,7 @@ defmodule Stevia.Accounts.UserGroup.Changes.SyncUserGroups do
   defp create_user_groups(changeset, context) do
     Ash.bulk_create(
       changeset.arguments.user_groups,
-      Stevia.Accounts.UserGroup,
+      AshPhoenixStarter.Accounts.UserGroup,
       :create,
       tenant: context.tenant,
       actor: context.actor,

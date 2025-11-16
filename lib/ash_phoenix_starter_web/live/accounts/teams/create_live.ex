@@ -1,7 +1,7 @@
-defmodule SteviaWeb.Accounts.Teams.CreateLive do
-  use SteviaWeb, :live_view
+defmodule AshPhoenixStarterWeb.Accounts.Teams.CreateLive do
+  use AshPhoenixStarterWeb, :live_view
 
-  on_mount {SteviaWeb.LiveUserAuth, :live_user_required}
+  on_mount {AshPhoenixStarterWeb.LiveUserAuth, :live_user_required}
 
   @impl Phoenix.LiveView
   def render(assigns) do
@@ -35,7 +35,7 @@ defmodule SteviaWeb.Accounts.Teams.CreateLive do
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     socket
-    |> assign(:resource, Stevia.Accounts.Team)
+    |> assign(:resource, AshPhoenixStarter.Accounts.Team)
     |> assign_query_opts()
     |> assign_attributes()
     |> assign_form()
