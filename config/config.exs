@@ -62,6 +62,12 @@ config :AshPhoenixStarter,
     AshPhoenixStarter.Accounts
   ]
 
+# Configure super admin users who are allowed to do
+# special actions such as impersonating other
+# users in the teams. Seeing all teams
+# and more...
+config :AshPhoenixStarter, super_users: ["kamaro@example.com"]
+
 # Configures the endpoint
 config :AshPhoenixStarter, AshPhoenixStarterWeb.Endpoint,
   url: [host: "localhost"],

@@ -14,6 +14,15 @@ defmodule AshPhoenixStarterWeb.Accounts.Users.UsersLive do
             <.icon name="hero-shield-check" class="w-5 h-5" /> {gettext("Groups")}
           </.button>
         </:col>
+
+        <:col :let={user} :if={AshPhoenixStarterWeb.Helpers.is_super_user?(@current_user)}>
+          <.button
+            phx-click={JS.patch("/accounts/users/impersonate/#{user.id}")}
+            class="btn btn-warning text-warning-content"
+          >
+            <.icon name="hero-eye-slash" class="w-5 h-5" /> {gettext("Impersonate")}
+          </.button>
+        </:col>
       </Cinder.Table.table>
     </Layouts.account_users>
     """

@@ -18,46 +18,6 @@ defmodule AshPhoenixStarterWeb.Menu do
         ]
       },
       %{
-        title: gettext("Farm Management"),
-        links: [
-          %{
-            href: ~p"/farms",
-            icon: "hero-map-pin",
-            text: gettext("Farms")
-          },
-          %{
-            href: ~p"/farms/fields",
-            icon: "hero-map",
-            text: gettext("Fields")
-          },
-          %{
-            href: ~p"/crops",
-            icon: "hero-building-storefront",
-            text: gettext("Crops")
-          },
-          %{
-            href: ~p"/farms/planting",
-            icon: "hero-shopping-bag",
-            text: gettext("Planting")
-          },
-          %{
-            href: ~p"/farms/harvesting",
-            icon: "hero-shopping-cart",
-            text: gettext("Harvesting")
-          },
-          %{
-            href: ~p"/farms/inputs",
-            icon: "hero-squares-2x2",
-            text: gettext("Inputs")
-          },
-          %{
-            href: ~p"/farms/inputs",
-            icon: "hero-user-group",
-            text: gettext("Employees")
-          }
-        ]
-      },
-      %{
         title: gettext("Reports"),
         links: [
           %{
@@ -69,11 +29,6 @@ defmodule AshPhoenixStarterWeb.Menu do
             href: ~p"/reports/summaries",
             icon: "hero-bars-3-bottom-left",
             text: gettext("Summary")
-          },
-          %{
-            href: ~p"/reports/details",
-            icon: "hero-list-bullet",
-            text: gettext("Details")
           }
         ]
       },
@@ -100,11 +55,11 @@ defmodule AshPhoenixStarterWeb.Menu do
       %{
         title: gettext("Settings"),
         links: [
-          %{
-            href: ~p"/settings",
-            icon: "hero-cog-6-tooth",
-            text: gettext("General")
-          },
+          # %{
+          #   href: ~p"/settings",
+          #   icon: "hero-cog-6-tooth",
+          #   text: gettext("General")
+          # },
           %{
             href: "/accounts/teams",
             icon: "hero-building-library",

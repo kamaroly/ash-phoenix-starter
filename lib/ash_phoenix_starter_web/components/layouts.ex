@@ -90,10 +90,33 @@ defmodule AshPhoenixStarterWeb.Layouts do
       </div>
       <.top_search_box />
       <div class="flex space-x-4">
-        <span class="text-sm">{@current_user.email |> to_string() |> Phoenix.Naming.humanize()}</span>
-        <.button variant="primary" phx-click={JS.navigate(~p"/sign-out")}>
-          <.icon name="hero-arrow-right-start-on-rectangle-solid" />
-        </.button>
+        <span class="text-sm"></span>
+
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost">
+            <span class="text-sm">
+              {@current_user.email |> to_string() |> Phoenix.Naming.humanize()}
+            </span>
+          </div>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <%!-- TODO: only show Back to My Account when impersonation is happening --%>
+              <a class="bg-warning text-warning-content" href={~p"/accounts/users/stop/impersonation"}>
+                <.icon name="hero-arrow-uturn-left-solid" />{gettext("Back to my Account")}
+              </a>
+            </li>
+            <li><a><.icon name="hero-user-circle-solid" />{gettext("Profile")}</a></li>
+            <li>
+              <a><.icon name="hero-cog-6-tooth-solid" />{gettext("Settings")}</a>
+            </li>
+
+            <li>
+              <a href={~p"/sign-out"}>
+                <.icon name="hero-arrow-right-start-on-rectangle-solid" /> {gettext("Sign Out")}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     """

@@ -69,6 +69,10 @@ defmodule AshPhoenixStarterWeb.Router do
     auth_routes AuthController, AshPhoenixStarter.Accounts.User, path: "/auth"
     sign_out_route AuthController
 
+    # user Impersonations
+    get "/accounts/users/impersonate/:user_id", AuthController, :impersonate
+    get "/accounts/users/stop/impersonation", AuthController, :stop_impersonating
+
     # Remove these if you'd like to use your own authentication views
     sign_in_route register_path: "/register",
                   reset_path: "/reset",
@@ -76,7 +80,7 @@ defmodule AshPhoenixStarterWeb.Router do
                   on_mount: [{AshPhoenixStarterWeb.LiveUserAuth, :live_no_user}],
                   overrides: [
                     AshPhoenixStarterWeb.AuthOverrides,
-                    AshAuthentication.Phoenix.Overrides.Default
+                    AshAuthentication.Phoenix.Overrides.DaisyUI
                   ]
 
     # Remove this if you do not want to use the reset password feature

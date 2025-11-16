@@ -172,7 +172,9 @@ defmodule AshPhoenixStarterWeb.AshForm do
           />
         </div>
 
-        <AshPhoenixStarterWeb.CoreComponents.button>Submit</AshPhoenixStarterWeb.CoreComponents.button>
+        <AshPhoenixStarterWeb.CoreComponents.button>
+          Submit
+        </AshPhoenixStarterWeb.CoreComponents.button>
       </Phoenix.Component.form>
     </div>
     """

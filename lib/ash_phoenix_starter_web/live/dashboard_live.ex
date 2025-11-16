@@ -45,7 +45,7 @@ defmodule AshPhoenixStarterWeb.DashboardLive do
             <AshPhoenixStarterWeb.Map.map />
           </div>
         </div>
-
+        
     <!-- Low Stock Section -->
         <div class="card bg-base-100 border border-primary ">
           <div class="card-body">

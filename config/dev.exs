@@ -65,7 +65,9 @@ config :AshPhoenixStarter, AshPhoenixStarterWeb.Endpoint,
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :AshPhoenixStarter, dev_routes: true, token_signing_secret: "7B/BPzeIzWI2IoXk/u0Fp8o5Sv3jF9vi"
+config :AshPhoenixStarter,
+  dev_routes: true,
+  token_signing_secret: "7B/BPzeIzWI2IoXk/u0Fp8o5Sv3jF9vi"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"
