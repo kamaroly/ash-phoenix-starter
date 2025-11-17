@@ -38,6 +38,7 @@ defmodule AshPhoenixStarterWeb.Controllers.AuthControllerTest do
       # Attempt impersonation
       impersonated_conn = get(super_user_conn, ~p"/accounts/users/impersonate/#{team_member.id}")
 
+      # TODO: Retrieve user by token
       assert impersonated_conn.private.plug_session["user_token"] ==
                super_user_conn.private.plug_session["user_token"]
     end
