@@ -21,7 +21,7 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "assignment_date",
+      "source": "application_date",
       "type": "date"
     },
     {
@@ -33,20 +33,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "hours_worked",
+      "source": "quantity_used",
       "type": "float"
-    },
-    {
-      "allow_nil?": true,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "task_description",
-      "type": "text"
     },
     {
       "allow_nil?": true,
@@ -85,37 +73,6 @@
       "type": "utc_datetime_usec"
     },
     {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": {
-        "deferrable": false,
-        "destination_attribute": "id",
-        "destination_attribute_default": null,
-        "destination_attribute_generated": null,
-        "index?": false,
-        "match_type": null,
-        "match_with": null,
-        "multitenancy": {
-          "attribute": null,
-          "global": false,
-          "strategy": "context"
-        },
-        "name": "farm_labor_assignments_employee_id_fkey",
-        "on_delete": null,
-        "on_update": null,
-        "primary_key?": true,
-        "schema": "public",
-        "table": "farm_employees"
-      },
-      "scale": null,
-      "size": null,
-      "source": "employee_id",
-      "type": "uuid"
-    },
-    {
       "allow_nil?": true,
       "default": "nil",
       "generated?": false,
@@ -134,7 +91,7 @@
           "global": false,
           "strategy": "context"
         },
-        "name": "farm_labor_assignments_planting_id_fkey",
+        "name": "farm_input_applications_planting_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
@@ -165,16 +122,16 @@
           "global": false,
           "strategy": "context"
         },
-        "name": "farm_labor_assignments_field_id_fkey",
+        "name": "farm_input_applications_input_type_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "farm_fields"
+        "table": "farm_input_types"
       },
       "scale": null,
       "size": null,
-      "source": "field_id",
+      "source": "input_type_id",
       "type": "uuid"
     }
   ],
@@ -183,14 +140,14 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "8A3C99EE8FEA381A1925899C355D16D12B20A9A4ED220586C53B4BCD60D6134B",
+  "hash": "0D579FCE92ED2D1E6296164DA7024721E2EB4B766C96DB9BA5E0BAF0C4CE2657",
   "identities": [],
   "multitenancy": {
     "attribute": null,
     "global": false,
     "strategy": "context"
   },
-  "repo": "Elixir.ash_phoenix_starter.Repo",
+  "repo": "Elixir.AshPhoenixStarter.Repo",
   "schema": null,
-  "table": "farm_labor_assignments"
+  "table": "farm_input_applications"
 }

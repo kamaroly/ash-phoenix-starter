@@ -21,20 +21,8 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "application_date",
-      "type": "date"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "quantity_used",
-      "type": "float"
+      "source": "start_timestamp",
+      "type": "utc_datetime"
     },
     {
       "allow_nil?": true,
@@ -45,8 +33,32 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "cost",
-      "type": "decimal"
+      "source": "end_timestamp",
+      "type": "utc_datetime"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "reason",
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "\"active\"",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "status",
+      "type": "text"
     },
     {
       "allow_nil?": false,
@@ -88,19 +100,19 @@
         "match_with": null,
         "multitenancy": {
           "attribute": null,
-          "global": false,
-          "strategy": "context"
+          "global": null,
+          "strategy": null
         },
-        "name": "farm_input_applications_planting_id_fkey",
+        "name": "user_impersonations_impersonator_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "farm_plantings"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "planting_id",
+      "source": "impersonator_user_id",
       "type": "uuid"
     },
     {
@@ -119,19 +131,50 @@
         "match_with": null,
         "multitenancy": {
           "attribute": null,
-          "global": false,
-          "strategy": "context"
+          "global": null,
+          "strategy": null
         },
-        "name": "farm_input_applications_input_type_id_fkey",
+        "name": "user_impersonations_impersonated_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "farm_input_types"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "input_type_id",
+      "source": "impersonated_user_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "user_impersonations_team_id_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "teams"
+      },
+      "scale": null,
+      "size": null,
+      "source": "team_id",
       "type": "uuid"
     }
   ],
@@ -140,14 +183,14 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "3DE6B38C78F9EDADEDBA1C9F60CC3CF8AC9DAF34EBF0A2BB525EC6225792C03C",
+  "hash": "79EE4024EA2743F1C0BF8536A9851A3CB014BF385D8AF706D94098F02A45E988",
   "identities": [],
   "multitenancy": {
     "attribute": null,
-    "global": false,
-    "strategy": "context"
+    "global": null,
+    "strategy": null
   },
-  "repo": "Elixir.ash_phoenix_starter.Repo",
+  "repo": "Elixir.AshPhoenixStarter.Repo",
   "schema": null,
-  "table": "farm_input_applications"
+  "table": "user_impersonations"
 }

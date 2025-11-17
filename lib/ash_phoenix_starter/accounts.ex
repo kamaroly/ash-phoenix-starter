@@ -11,5 +11,7 @@ defmodule AshPhoenixStarter.Accounts do
     resource AshPhoenixStarter.Accounts.Group
     resource AshPhoenixStarter.Accounts.UserGroup
     resource AshPhoenixStarter.Accounts.GroupPermission
+
+    resource AshPhoenixStarter.Accounts.UserImpersonation
   end
 end

@@ -1,6 +1,7 @@
 defmodule AshPhoenixStarterWeb.AuthController do
   use AshPhoenixStarterWeb, :controller
   use AshAuthentication.Phoenix.Controller
+  alias AshPhoenixStarter.Accounts.UserImpersonation
 
   def success(conn, activity, user, _token) do
     return_to = get_session(conn, :return_to) || ~p"/dashboard"
@@ -62,9 +63,10 @@ defmodule AshPhoenixStarterWeb.AuthController do
       # Ash stores under "user_token" by default (confirm if customized)
       conn
       # Sign in as the target user
-      |> force_sign_in(user_id, "Impersonate user_id: #{user_id}", true)
-      |> put_flash(:info, "Now impersonating")
+      |> force_sign_in(user_id)
       |> put_session(:impersonator_user_id, current_user.id)
+      |> mark_impersonation_started()
+      |> put_flash(:info, "Now impersonating")
       |> redirect(to: ~p"/dashboard")
     else
       conn
@@ -79,8 +81,9 @@ defmodule AshPhoenixStarterWeb.AuthController do
     if current_user_id do
       # Restore original user session
       conn
-      |> force_sign_in(current_user_id, "Stop impersonatation", false)
+      |> force_sign_in(current_user_id)
       |> delete_session(:impersonator_user_id)
+      |> mark_impersonation_stopped()
       |> put_flash(:info, "Impersonation ended. Back to your account.")
       |> redirect(to: ~p"/dashboard")
     else
@@ -90,20 +93,28 @@ defmodule AshPhoenixStarterWeb.AuthController do
     end
   end
 
-  def force_sign_in(conn, user_id, purpose, impersonated? \\ true) do
-    alias AshAuthentication.Jwt
-    target_user = Ash.get!(AshPhoenixStarter.Accounts.User, user_id, authorize?: false)
+  defp force_sign_in(conn, current_user_id, perpose \\ "Impersonation") do
+    %{conn: conn, purpose: perpose, user_id: current_user_id}
+    |> AshPhoenixStarter.Accounts.User.force_sign_in!(authorize?: false)
+  end
 
-    # Generate sign-in token for target user (no password needed)
-    {:ok, token, _claims} = Jwt.token_for_user(target_user, %{"purpose" => purpose})
+  defp mark_impersonation_started(conn) do
+    params = %{
+      reason: "Impersonating user for support",
+      impersonator_user_id: get_session(conn, :impersonator_user_id),
+      impersonated_user_id: conn.assigns.current_user.id
+    }
 
-    to_sign_in_user =
-      target_user
-      |> Ash.Resource.put_metadata(:token, token)
-      |> Ash.Resource.put_metadata(:impersonated?, impersonated?)
+    {:ok, _user_imp} = UserImpersonation.start(params, authorize?: false)
 
     conn
-    |> store_in_session(to_sign_in_user)
-    |> assign(:current_user, to_sign_in_user)
+  end
+
+  defp mark_impersonation_stopped(conn) do
+    params = %{impersonator_user_id: conn.assigns.current_user.id}
+
+    {:ok, _user_imp} = UserImpersonation.stop(params, authorize?: false)
+
+    conn
   end
 end

@@ -236,5 +236,27 @@ defmodule AshPhoenixStarter.Accounts.User.Actions do
       manual AshPhoenixStarter.Accounts.User.Actions.CreateUserIfNotExists
       change AshPhoenixStarter.Accounts.User.Changes.AddToTeam
     end
+
+    action :force_sign_in, :map do
+      description "Force login without knowing user password. Only for super admins"
+
+      argument :conn, :map do
+        description "The connection for this impersonation"
+      end
+
+      argument :purpose, :string do
+        description "The purpose of this sign in"
+      end
+
+      argument :user_id, :uuid do
+        description "The user ID of the person being impersonated"
+      end
+
+      run AshPhoenixStarter.Accounts.User.Actions.ForceSignIn
+    end
+  end
+
+  code_interface do
+    define :force_sign_in, action: :force_sign_in
   end
 end

@@ -90,14 +90,14 @@
   "custom_indexes": [],
   "custom_statements": [],
   "has_create_action": false,
-  "hash": "189AD50EA3F545FDEBBB462409555F236FA3EA14DA170E1274F0B90ED726DA31",
+  "hash": "5ECE3074369A4ED853EAA1B47780EE90ED3B200362DC24D6E323EE9EA7E7182C",
   "identities": [],
   "multitenancy": {
     "attribute": null,
     "global": false,
     "strategy": "context"
   },
-  "repo": "Elixir.ash_phoenix_starter.Repo",
+  "repo": "Elixir.AshPhoenixStarter.Repo",
   "schema": null,
   "table": "farm_employees"
 }
