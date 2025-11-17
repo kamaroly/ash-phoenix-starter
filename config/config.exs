@@ -57,7 +57,6 @@ config :AshPhoenixStarter,
   ecto_repos: [AshPhoenixStarter.Repo],
   generators: [timestamp_type: :utc_datetime],
   ash_domains: [
-    AshPhoenixStarter.Farms,
     AshPhoenixStarter.Ledger,
     AshPhoenixStarter.Accounts
   ]

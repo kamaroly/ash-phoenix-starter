@@ -13,7 +13,19 @@
       "type": "uuid"
     },
     {
-      "allow_nil?": false,
+      "allow_nil?": true,
+      "default": "fragment(\"(now() AT TIME ZONE 'utc')\")",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "started_at",
+      "type": "utc_datetime_usec"
+    },
+    {
+      "allow_nil?": true,
       "default": "nil",
       "generated?": false,
       "precision": null,
@@ -21,32 +33,32 @@
       "references": null,
       "scale": null,
       "size": null,
-      "source": "planting_date",
-      "type": "date"
+      "source": "ended_at",
+      "type": "utc_datetime"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": null,
+      "scale": null,
+      "size": null,
+      "source": "reason",
+      "type": "text"
     },
     {
       "allow_nil?": false,
-      "default": "nil",
+      "default": "\"active\"",
       "generated?": false,
       "precision": null,
       "primary_key?": false,
       "references": null,
       "scale": null,
       "size": null,
-      "source": "expected_harvest_date",
-      "type": "date"
-    },
-    {
-      "allow_nil?": false,
-      "default": "nil",
-      "generated?": false,
-      "precision": null,
-      "primary_key?": false,
-      "references": null,
-      "scale": null,
-      "size": null,
-      "source": "quantity_planted",
-      "type": "float"
+      "source": "status",
+      "type": "text"
     },
     {
       "allow_nil?": false,
@@ -88,19 +100,19 @@
         "match_with": null,
         "multitenancy": {
           "attribute": null,
-          "global": false,
-          "strategy": "context"
+          "global": null,
+          "strategy": null
         },
-        "name": "farm_plantings_field_id_fkey",
+        "name": "user_impersonations_impersonator_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "farm_fields"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "field_id",
+      "source": "impersonator_user_id",
       "type": "uuid"
     },
     {
@@ -119,19 +131,50 @@
         "match_with": null,
         "multitenancy": {
           "attribute": null,
-          "global": false,
-          "strategy": "context"
+          "global": null,
+          "strategy": null
         },
-        "name": "farm_plantings_crop_id_fkey",
+        "name": "user_impersonations_impersonated_user_id_fkey",
         "on_delete": null,
         "on_update": null,
         "primary_key?": true,
         "schema": "public",
-        "table": "farm_crops"
+        "table": "users"
       },
       "scale": null,
       "size": null,
-      "source": "crop_id",
+      "source": "impersonated_user_id",
+      "type": "uuid"
+    },
+    {
+      "allow_nil?": true,
+      "default": "nil",
+      "generated?": false,
+      "precision": null,
+      "primary_key?": false,
+      "references": {
+        "deferrable": false,
+        "destination_attribute": "id",
+        "destination_attribute_default": null,
+        "destination_attribute_generated": null,
+        "index?": false,
+        "match_type": null,
+        "match_with": null,
+        "multitenancy": {
+          "attribute": null,
+          "global": null,
+          "strategy": null
+        },
+        "name": "user_impersonations_team_domain_fkey",
+        "on_delete": null,
+        "on_update": null,
+        "primary_key?": true,
+        "schema": "public",
+        "table": "teams"
+      },
+      "scale": null,
+      "size": null,
+      "source": "team_domain",
       "type": "uuid"
     }
   ],
@@ -139,15 +182,15 @@
   "check_constraints": [],
   "custom_indexes": [],
   "custom_statements": [],
-  "has_create_action": false,
-  "hash": "0ED09817061026535DAB0F01254E934B8D9662FC528B7DB93691021D6AFE1C86",
+  "has_create_action": true,
+  "hash": "7F3BA14896971CA438C55DF75B4A6D23D3E91AAD70680DA9F6A7D99C60757617",
   "identities": [],
   "multitenancy": {
     "attribute": null,
-    "global": false,
-    "strategy": "context"
+    "global": null,
+    "strategy": null
   },
-  "repo": "Elixir.ash_phoenix_starter.Repo",
+  "repo": "Elixir.AshPhoenixStarter.Repo",
   "schema": null,
-  "table": "farm_plantings"
+  "table": "user_impersonations"
 }

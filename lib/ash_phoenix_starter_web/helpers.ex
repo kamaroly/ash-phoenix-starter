@@ -11,11 +11,12 @@ defmodule AshPhoenixStarterWeb.Helpers do
   @doc """
   Confirm if the users is impersonative
   """
-  def is_impersonated?(user) do
-    Ash.Resource.get_metadata(user, :token)
-    |> dbg()
+  def is_impersonated?(impersonator_user_id, impersonated_user_id) do
+    require Ash.Query
 
-    Ash.Resource.get_metadata(user, :impersonated?)
-    |> dbg()
+    AshPhoenixStarter.Accounts.UserImpersonation
+    |> Ash.Query.filter(impersonator_user_id == ^impersonator_user_id)
+    |> Ash.Query.filter(impersonated_user_id == ^impersonated_user_id)
+    |> Ash.exists?(authorize?: false)
   end
 end
