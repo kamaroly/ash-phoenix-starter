@@ -2,7 +2,9 @@
 
 A starter Kit that helps you build what's unique to your application faster. 
 
-Don't reinvent the wheel for common features. Clone it, rename it and start shipping with confidence today. Build for fast prototype and scaling in the future.
+Don't reinvent the wheel for common features. Clone it, rename it and start shipping with confidence. 
+
+Built for fast prototype and scaling in the future.
 
 You can find concepts used in this kit in the [Ash Framework for Phoenix Developers](https://medium.com/@lambert.kamaro/ash-framework-for-phoenix-developpers-c29b0a147552) blog serie. I will continue to add features and documentation as time permits. 
 
