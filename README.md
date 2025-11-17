@@ -1,5 +1,8 @@
 # Ash Phoenix Application Starter Kit
 
+![Unit Tests](https://github.com/kamaroly/ash-phoenix-starter/actions/workflows/elixir.yaml/badge.svg)
+
+
 A starter Kit that helps you build what's unique to your application faster. 
 
 Don't reinvent the wheel for common features. Clone it, rename it and start shipping with confidence. 
