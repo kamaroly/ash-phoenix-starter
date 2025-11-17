@@ -21,7 +21,7 @@ defmodule AshPhoenixStarter.Accounts.User.Relationships do
     end
 
     has_many :impersonations, AshPhoenixStarter.Accounts.UserImpersonation do
-      filter expr(status == :active)
+      destination_attribute :impersonated_user_id
       description "Active impersonation for this user"
     end
   end
