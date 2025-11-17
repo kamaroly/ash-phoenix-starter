@@ -83,7 +83,7 @@ defmodule AshPhoenixStarterWeb.Layouts do
     ~H"""
     <nav class="bg-white p-4 flex justify-between items-center border border-b border-gray-200 md:flex-row flex-col">
       <div
-        class="text-xl font-semibold mb-2 md:mb-0 hover:cursor-pointer"
+        class="text-xl font-semibold mb-2 md:mb-0 hover:cursor-pointer text-primary bg-base-100 p-3 rounded-sm"
         phx-click={JS.navigate(~p"/")}
       >
         {app_name(@current_user)}

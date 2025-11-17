@@ -102,9 +102,6 @@ defmodule AshPhoenixStarterWeb.AuthController do
       |> Ash.Resource.put_metadata(:token, token)
       |> Ash.Resource.put_metadata(:impersonated?, impersonated?)
 
-    Ash.Resource.get_metadata(to_sign_in_user, :impersonated?)
-    |> dbg()
-
     conn
     |> store_in_session(to_sign_in_user)
     |> assign(:current_user, to_sign_in_user)

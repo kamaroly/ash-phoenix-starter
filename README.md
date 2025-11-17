@@ -23,19 +23,21 @@ You can find concepts used in this kit in the [Ash Framework for Phoenix Develop
 14. Accounting with AshDouble Entry
 
 ### On-going implementation
-#### 1. User Impersonation
+
+###### User Impersonation
+
 1. Super user is added to the `super_users` list in the config/config.exs  
 2. Super users can go to Settings > Users > and see Impersonate button
 3. If clicked, super users access the application as if they are the user they are impersonating
 4. Super Users can Go back to their account by clicking on top right menu and select "Go Back to My Account"
 
-#### Upcoming features
+### Upcoming features
 
 1. Email send out
 2. Rich Background Jobs with Oban
 4. AI integration with Ash AI
 5. Paper trail with Ash Paper Trail
-6. Workflows with ash_approver
+6. Workflows with ash_approver(A local package that needs to be published)
 7. Self referencing data with AshParental
 8. Documentations
 9. Automated CI/ CD workflow with Github
