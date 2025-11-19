@@ -116,4 +116,8 @@ defmodule AshPhoenixStarter.Accounts.Token do
     create_timestamp :created_at
     update_timestamp :updated_at
   end
+
+  calculations do
+    calculate :user_id, :uuid, expr(fragment("split_part(?, '=', 2)::uuid", subject))
+  end
 end

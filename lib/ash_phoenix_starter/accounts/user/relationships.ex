@@ -24,5 +24,12 @@ defmodule AshPhoenixStarter.Accounts.User.Relationships do
       destination_attribute :impersonated_user_id
       description "Active impersonation for this user"
     end
+
+    has_many :tokens, AshPhoenixStarter.Accounts.Token do
+      # no_attributes? true
+      destination_attribute :user_id
+      validate_destination_attribute? false
+      description "User tokens for login, confirmation and revokation"
+    end
   end
 end
